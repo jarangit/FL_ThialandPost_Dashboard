@@ -15,9 +15,9 @@ input:focus {
   outline: none !important;
 }
 .myContainer {
-  max-width: 1300px;
+  max-width: 1980px;
   margin: 0 auto;
   overflow:hidden;
-  padding: 0 5%;
+  padding: 0;
 }
 
