@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import CardInformation from './compoenents/card'
+import CardInformation from './components/card'
 
 type Props = {}
 

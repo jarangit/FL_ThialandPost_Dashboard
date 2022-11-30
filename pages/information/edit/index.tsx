@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import SaveInformationModal from '../../../components/modal/saveInformationModal'
-import InformationForm from '../compoenents/informationForm'
+import InformationForm from '../components/informationForm'
 
 type Props = {}
 
@@ -13,7 +13,7 @@ const EditInformationPage = (props: Props) => {
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [])
+  }, [showModal])
 
   useEffect(() => {
     setShowModal(false)
