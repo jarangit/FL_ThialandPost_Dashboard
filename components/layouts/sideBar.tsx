@@ -8,7 +8,8 @@ import SideBarItem from './sideBarItem'
 import { MdLibraryBooks } from 'react-icons/md'
 import { useRouter } from 'next/router'
 type Props = {
-
+  showSideBar:any;
+  setShowSideBar:any;
 }
 
 const dataMenu = [
@@ -87,8 +88,7 @@ const dataMenu = [
     ]
   },
 ]
-const SideBar = ({ }: Props) => {
-  const [showSideBar, setShowSideBar] = useState(true)
+const SideBar = ({ showSideBar, setShowSideBar}: Props) => {
   const [currentPath, setCurrentPath] = useState("")
   const {pathname} = useRouter()
 
@@ -99,7 +99,7 @@ const SideBar = ({ }: Props) => {
     }
   }, [pathname])
   return (
-    <div className={`bg-blue text-white ${showSideBar ? "w-[350px] max-w-[350px] pr-9" : "max-w-[80px] w-[80px]"} transition-all p-5 h-screen`}>
+    <div className={`bg-blue text-white mt-[100px] ${showSideBar ? "w-[350px] max-w-[350px] !pr-9" : "max-w-[80px] w-[50px] lg:w-[80px]"} transition-all p-5 px-3 lg:p-5 min-h-screen h-full fixed z-10`}>
       <div onClick={() => setShowSideBar(!showSideBar)} className={`flex gap-1 items-center cursor-pointer`} >
         <AiOutlineMenuFold size={35} />
         <div className={`${showSideBar ? "block" : "hidden"}`} >เมนู</div>

@@ -31,15 +31,14 @@ const CardInformation = ({
   return (
     <div>
       <div className='border-b-2 border-gray-light pb-3 text-xl'>ข้อมูลส่วนตัว</div>
-      <div className='bg-white rounded-lg mt-6 p-6'>
-        <div className='flex justify-end' >
-          <Link href={`/information/edit/${id}`}>
-            <div className='h-10 p-3 text-white flex items-center justify-center bg-red w-fit rounded-lg'>แก้ไขข้อมูลส่วนตัว</div>
+      <div className='bg-white rounded-lg mt-6 p-6 flex flex-col gap-3 drop-shadow-lg'>
+        <div className='flex justify-center lg:justify-end order-2 lg:order-1 w-full' >
+          <Link href={`/information/edit`}>
+            <div className='h-10 p-3 text-white flex items-center justify-center bg-red w-full lg:w-fit rounded-lg'>แก้ไขข้อมูลส่วนตัว</div>
           </Link>
-
         </div>
 
-        <div className='grid  grid-cols-1 lg:grid-cols-2 gap-6 p-20'>
+        <div className='grid  grid-cols-1 lg:grid-cols-2 gap-6 p-0 lg:p-20 order-1 lg:order-2'>
           <div>
             <div>รหัสสมาชิก</div>
             <div className='text-gray-light'>{id}</div>
