@@ -14,7 +14,7 @@ const Layout = ({ children }: Props) => {
         <div>
           <SideBar/>
         </div>
-        <div>
+        <div className='myContainer pl-6 pt-6 '>
           {children}
         </div>
       </div>

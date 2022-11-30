@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import React, { useState } from 'react'
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react'
 import { MdKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md';
 
 type Props = {
@@ -7,10 +8,14 @@ type Props = {
   icon?: any;
   url?: string;
   subMenu: any[];
+  setShowSideBar: any;
+  currentPath:string;
 }
 
-const SideBarItem = ({ text, icon, url, subMenu }: Props) => {
+const SideBarItem = ({ text, icon, url, subMenu, setShowSideBar, currentPath }: Props) => {
   const [show, setShow] = useState(false)
+ 
+  
   return (
     <div>
       <div className='cursor-pointer flex gap-2 relative items-center' onClick={() => setShow(!show)}>
@@ -23,13 +28,13 @@ const SideBarItem = ({ text, icon, url, subMenu }: Props) => {
         )}
       </div>
       {/* render submenu */}
-      <div className='pl-7 '>
+      <div className=''>
         {subMenu.length > 0 ? (
           <div className={`flex flex-col gap-3 mt-3  overflow-hidden ${show ? "max-h-[500px]" : "max-h-0"} transition-all duration-300`}>
-            {subMenu.map((item:any, key:any) => (
-              <div key={key}>
+            {subMenu.map((item: any, key: any) => (
+              <div key={key} onClick={() => setShowSideBar(false)} className = {` pl-7 p-1 rounded-md hover:text-white text-gray-light ${item.url === currentPath && item.url !== "/" ? "bg-blue-dark !text-white":""}`}>
                 <Link href={item.url}>
-                  <div className='text-gray-light hover:text-white cursor-pointer'>{item.text}</div>
+                  <div className='  cursor-pointer'>{item.text}</div>
                 </Link>
               </div>
             ))}

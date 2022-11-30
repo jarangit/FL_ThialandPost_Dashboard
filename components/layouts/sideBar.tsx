@@ -1,11 +1,12 @@
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiOutlineMenuFold } from 'react-icons/ai'
 import { FaPen, FaUserCircle } from 'react-icons/fa'
 import { CgArrowAlignV } from 'react-icons/cg'
 import { HiCreditCard, HiShoppingCart } from 'react-icons/hi'
 import SideBarItem from './sideBarItem'
 import { MdLibraryBooks } from 'react-icons/md'
+import { useRouter } from 'next/router'
 type Props = {
 
 }
@@ -88,6 +89,15 @@ const dataMenu = [
 ]
 const SideBar = ({ }: Props) => {
   const [showSideBar, setShowSideBar] = useState(true)
+  const [currentPath, setCurrentPath] = useState("")
+  const {pathname} = useRouter()
+
+  useEffect(() => {
+    if(pathname){
+      const found = pathname.toString().split("/")
+      setCurrentPath(`/${found[1]}`)
+    }
+  }, [pathname])
   return (
     <div className={`bg-blue text-white ${showSideBar ? "w-[350px] max-w-[350px] pr-9" : "max-w-[80px] w-[80px]"} transition-all p-5 h-screen`}>
       <div onClick={() => setShowSideBar(!showSideBar)} className={`flex gap-1 items-center cursor-pointer`} >
@@ -103,6 +113,8 @@ const SideBar = ({ }: Props) => {
                 url={item.url}
                 subMenu={item.children || []}
                 icon={item.icon}
+                setShowSideBar = {setShowSideBar}
+                currentPath = {currentPath}
               />
             </div>
           ))}

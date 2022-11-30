@@ -20,7 +20,7 @@ const Menu = (props: Props) => {
                 style={{ objectFit: "contain" }}
               />
             </div>
-            <div>ระบบบริหารจัดการเว็บเพจสมาชิกแสตมป์ไทย</div>
+            <div className='text-lg'>ระบบบริหารจัดการเว็บเพจสมาชิกแสตมป์ไทย</div>
           </div>
           <div className='flex items-center gap-3'>
             <div>
