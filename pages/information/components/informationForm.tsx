@@ -26,7 +26,7 @@ const InformationForm = ({ setShowModal }: Props) => {
 
   const styled = {
     input: `
-    border-2 border-gray-light p-2 rounded-md drop-shadow-sm w-full mt-1
+    border-[1px] border-gray-light p-2 rounded-md drop-shadow-sm w-full mt-1 placeholder:text-gray
     `
   }
   return (
@@ -77,7 +77,7 @@ const InformationForm = ({ setShowModal }: Props) => {
             </div>
           </div>
           <div className='grid  grid-cols-1 lg:grid-cols-2 gap-6 p-0 pt-6 lg:p-20 order-1 lg:order-2'>
-            <div className='col-span-1 lg:col-span-2 w-full underline'>
+            <div className='col-span-1 lg:col-span-2 w-full'>
               ที่อยู่จัดส่งเอกสาร
             </div>
             <div>
@@ -106,12 +106,12 @@ const InformationForm = ({ setShowModal }: Props) => {
             </div>
           </div>
           <div className='grid  grid-cols-1 lg:grid-cols-2 gap-6 p-0 pt-6 lg:p-20 order-1 lg:order-2'>
-            <div className='col-span-1 lg:col-span-2 w-full  underline'>
+            <div className='col-span-1 lg:col-span-2 w-full '>
               ที่อยู่จัดส่งสินค้า
             </div>
             <div className='col-span-1 lg:col-span-2 w-full'>
               <div className="flex items-center">
-                <label className="container underline">
+                <label className="container">
                   ที่อยู่เดียวกับที่อยู่จัดส่งเอกสาร
                   <input type="checkbox" />
                   <span className="checkmark"></span>

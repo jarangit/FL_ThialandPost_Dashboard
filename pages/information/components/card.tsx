@@ -38,46 +38,46 @@ const CardInformation = ({
           </Link>
         </div>
 
-        <div className='grid  grid-cols-1 lg:grid-cols-2 gap-6 p-0 lg:p-20 order-1 lg:order-2'>
+        <div className='grid  grid-cols-1 lg:grid-cols-2 gap-6 p-0 lg:px-20 order-1 lg:order-2'>
           <div>
             <div>รหัสสมาชิก</div>
-            <div className='text-gray-light'>{id}</div>
+            <div className='text-gray'>{id}</div>
           </div>
           <div>
             <div>ชื่อ-นามสกุล</div>
-            <div className='text-gray-light'>{fname} {lname}</div>
+            <div className='text-gray'>{fname} {lname}</div>
           </div>
           <div>
             <div>เลขบัตรประจำตัวประชาชน</div>
-            <div className='text-gray-light'>{idCardNumber}</div>
+            <div className='text-gray'>{idCardNumber}</div>
           </div>
           <div>
             <div>ประเภทสมาชิก</div>
-            <div className='text-gray-light'>{type}</div>
+            <div className='text-gray'>{type}</div>
           </div>
           <div>
             <div>วันเกิด</div>
-            <div className='text-gray-light'>{birthday}</div>
+            <div className='text-gray'>{birthday}</div>
           </div>
           <div>
             <div>เพศ</div>
-            <div className='text-gray-light'>{sex}</div>
+            <div className='text-gray'>{sex}</div>
           </div>
           <div>
             <div>อีเมล</div>
-            <div className='text-gray-light'>{email}</div>
+            <div className='text-gray'>{email}</div>
           </div>
           <div>
             <div>เบอร์โทรศัพท์</div>
-            <div className='text-gray-light'>{tel}</div>
+            <div className='text-gray'>{tel}</div>
           </div>
           <div>
             <div>ที่อยู่จัดส่งเอกสาร </div>
-            <div className='text-gray-light'>{addressDoc}</div>
+            <div className='text-gray'>{addressDoc}</div>
           </div>
           <div>
             <div>ที่อยู่จัดส่งสินค้า</div>
-            <div className='text-gray-light'>{addressProduct}</div>
+            <div className='text-gray'>{addressProduct}</div>
           </div>
 
         </div>
