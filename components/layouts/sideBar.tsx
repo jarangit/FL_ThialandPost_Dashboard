@@ -16,7 +16,7 @@ const dataMenu = [
   {
     icon: <FaUserCircle size={25} />,
     text: 'ข้อมูลส่วนตัว',
-    url: '/information',
+    url: '#',
     children: [
       {
         icon: '',
@@ -26,18 +26,18 @@ const dataMenu = [
       {
         icon: '',
         text: 'ข้อมูลคำสั่งประจำ',
-        url: '/',
+        url: '#',
       },
       {
         icon: '',
         text: `เงื่อนไขการใช้บริการ
         (ด้านการตลาด)`,
-        url: '/',
+        url: '#',
       },
       {
         icon: '',
         text: 'เปลี่ยนรหัสผ่าน',
-        url: '/',
+        url: '#',
       },
     ]
   },
@@ -45,7 +45,7 @@ const dataMenu = [
     icon: <CgArrowAlignV size={25} />,
     text: `รายละเอียดข้อมูลทางบัญชี 
     (Statement)`,
-    url: '/',
+    url: '#',
     children: [
       {
         icon: '',
@@ -57,7 +57,7 @@ const dataMenu = [
   {
     icon: <HiShoppingCart size={25} />,
     text: 'สั่งจองสั่งซื้อ',
-    url: '/',
+    url: '#',
     children: [
       
     ]
@@ -66,7 +66,7 @@ const dataMenu = [
     icon: <MdLibraryBooks size={25} />,
     text: `สินค้าวันแรกจำหน่ายที่ท่าน
     ยังไม่ได้รับตามคำสั่งประจำ`,
-    url: '/',
+    url: '#',
     children: [
       
     ]
@@ -74,7 +74,7 @@ const dataMenu = [
   {
     icon: <FaPen size={25} />,
     text: 'ติดตาม/สอบถามข้อมูล',
-    url: '/',
+    url: '#',
     children: [
       
     ]
@@ -82,7 +82,15 @@ const dataMenu = [
   {
     icon: <HiCreditCard size={25} />,
     text: 'เพิ่มเงินบัญชีสมาชิก',
-    url: '/',
+    url: '#',
+    children: [
+      
+    ]
+  },
+  {
+    icon: <HiCreditCard size={25} />,
+    text: 'จัดการคำนำชื่อ',
+    url: '/menage-name',
     children: [
       
     ]
@@ -105,12 +113,12 @@ const SideBar = ({ showSideBar, setShowSideBar}: Props) => {
         <div className={`${showSideBar ? "block" : "hidden"}`} >เมนู</div>
       </div>
       {showSideBar && (
-        <div className='flex flex-col gap-5 mt-10'>
+        <div className='flex flex-col gap-1 mt-10'>
           {dataMenu.map((item, key) => (
             <div key={key}>
               <SideBarItem
                 text={item.text}
-                url={item.url}
+                url={item?.url || ""}
                 subMenu={item.children || []}
                 icon={item.icon}
                 setShowSideBar = {setShowSideBar}
