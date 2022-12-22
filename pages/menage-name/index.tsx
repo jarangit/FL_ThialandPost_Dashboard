@@ -86,6 +86,7 @@ const menageNamePage = (props: Props) => {
 
       <CardWhite>
         <div className={`min-h-[200px]`}>
+          
           {/* table */}
           {mode == "DEFAULT" && (
             <Table
@@ -99,7 +100,12 @@ const menageNamePage = (props: Props) => {
 
           {/* create name */}
           {mode == "CREATE" && (
-            <FormMenage onChangeMode={onChangeMode} setShowModalSaved={() => setShowModalSaved(true)} onSubmit={onAddTitleName} />
+            <FormMenage
+              onChangeMode={onChangeMode}
+              setShowModalSaved={() => setShowModalSaved(true)}
+              onSubmit={onAddTitleName}
+              mode={mode}
+            />
           )}
 
           {/* update name */}
@@ -117,7 +123,7 @@ const menageNamePage = (props: Props) => {
       </CardWhite>
 
       {/* modal zone */}
-      <SavedModal handleClose={() => setShowModalSaved(false)} open={showModalSaved} onSubmit = {() => onChangeMode("DEFAULT")}/>
+      <SavedModal handleClose={() => setShowModalSaved(false)} open={showModalSaved} onSubmit={() => onChangeMode("DEFAULT")} />
       <ConfirmDeleteModal handleClose={() => setShowModalDelete(false)} open={showModalDelete} onSubmit={onDeleteTitleName} />
     </div>
   )

@@ -43,14 +43,15 @@ const FormMenage = ({ onChangeMode, mode, setShowModalSaved, onSubmit, dataTitle
       })
       return
     }
+
     if (mode == "UPDATE") {
       const saved = await onSubmit({ ...objTitleNameUpdate })
       if (saved) {
         setShowModalSaved(true)
       }
-    } else {
+    } else if (mode == "CREATE") {
       const saved = await onSubmit({ ...objTitleName })
-      if (saved?.statusText === "Created") {
+      if (saved) {
         setShowModalSaved(true)
       }
     }
@@ -93,7 +94,7 @@ const FormMenage = ({ onChangeMode, mode, setShowModalSaved, onSubmit, dataTitle
       <div className={`flex flex-col gap-2 mt-6`}>
         <div>คำนำหน้าชื่อ</div>
         <form>
-          <Input type="text" placeholder='' w="300px" onChange={setTitleName} value={objTitleNameUpdate?.titleName} error = {inputError}/>
+          <Input type="text" placeholder='' w="300px" onChange={setTitleName} value={objTitleNameUpdate?.titleName} error={inputError} />
         </form>
       </div>
     </div>
