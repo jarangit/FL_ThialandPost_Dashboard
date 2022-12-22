@@ -1,14 +1,22 @@
-import React, { useCallback, useMemo } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { FaPen } from 'react-icons/fa'
 import { ImBin2 } from 'react-icons/im'
 import { useRowSelect, useTable } from 'react-table'
 import Button from '../../../components/buttons/button'
+
 type Props = {
   onChangeMode: any;
   setShowModalDelete: any;
+  dataTable: any;
+  setActionID: any;
+  onDeleteTitleName: any;
 }
 
-const Table = ({ onChangeMode, setShowModalDelete }: Props) => {
+const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDeleteTitleName }: Props) => {
+  // state zone
+  const [data, setData] = useState([])
+  const [id, setTd] = useState("")
+
   const RenderIcon = useCallback(() => {
     return (
       <div className='flex gap-3  justify-center items-center text-gray-dark'>
@@ -21,23 +29,23 @@ const Table = ({ onChangeMode, setShowModalDelete }: Props) => {
       </div>
     )
   }, [])
-  const data = React.useMemo(
-    () => [
-      {
-        rank: 'Hello',
-        name: 'World',
-        date: 'World',
+
+  const mapDataTable = async () => {
+    const res = await dataTable?.list.map((item: any, key: any) => {
+      const date = new Date(item.UpdatedDate)
+      const updatedAt = `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
+      return {
+        id: item.titleId,
+        rank: key + 1,
+        name: item.titleName,
+        date: updatedAt,
         icon: <RenderIcon />
-      },
-      {
-        rank: 'Hello',
-        name: 'World',
-        date: 'World',
-        icon: <RenderIcon />
-      },
-    ],
-    []
-  )
+      }
+    })
+    if (res) {
+      setData(res)
+    }
+  }
 
   const columns: any = React.useMemo(
     () => [
@@ -121,6 +129,16 @@ const Table = ({ onChangeMode, setShowModalDelete }: Props) => {
     }
   )
 
+  const onSetID = (row: any) => {
+    const { id } = row.row.original
+    if (row) {
+      setActionID(id)
+    }
+  }
+  useEffect(() => {
+    mapDataTable()
+  }, [dataTable])
+
   return (
     <>
       <div className={`w-full flex justify-end gap-3`}>
@@ -163,6 +181,7 @@ const Table = ({ onChangeMode, setShowModalDelete }: Props) => {
                     return (
                       // eslint-disable-next-line react/jsx-key
                       <td
+                        onClick={() => onSetID({ row })}
                         {...cell.getCellProps()}
                         className={`border-y border-gray-light p-2`}
                       >

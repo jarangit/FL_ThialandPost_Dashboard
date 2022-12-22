@@ -6,6 +6,7 @@ import Backdrop from './backDrop'
 type Props = {
   handleClose: any;
   open: boolean;
+  onSubmit?: any;
 }
 const dropIn = {
   hidden: {
@@ -28,7 +29,7 @@ const dropIn = {
   },
 };
 
-const SavedModal = ({ handleClose, open }: Props) => {
+const SavedModal = ({ handleClose, open, onSubmit}: Props) => {
   return (
     <AnimatePresence>
       {open ? (
@@ -49,7 +50,7 @@ const SavedModal = ({ handleClose, open }: Props) => {
                 <AiFillCheckCircle size={100} color = "#15A832" />
               </div>
               <div>บันทึกสำเร็จ</div>
-              <button  className='bg-red h-10 px-6 text-white rounded-lg' onClick={() => handleClose(false)}>ตกลง</button>
+              <button  className='bg-red h-10 px-6 text-white rounded-lg' onClick={() => { handleClose(false); onSubmit();}}>ตกลง</button>
             </div>
           </motion.div>
         </Backdrop>

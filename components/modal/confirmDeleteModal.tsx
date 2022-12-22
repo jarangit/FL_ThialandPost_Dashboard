@@ -7,6 +7,7 @@ import Backdrop from './backDrop'
 type Props = {
   handleClose: any;
   open: boolean;
+  onSubmit: any;
 }
 const dropIn = {
   hidden: {
@@ -29,7 +30,7 @@ const dropIn = {
   },
 };
 
-const ConfirmDeleteModal = ({ handleClose, open }: Props) => {
+const ConfirmDeleteModal = ({ handleClose, open, onSubmit }: Props) => {
   return (
     <AnimatePresence>
       {open ? (
@@ -51,7 +52,7 @@ const ConfirmDeleteModal = ({ handleClose, open }: Props) => {
               </div>
               <div>ยืนยันการลบข้อมูล</div>
               <div className='flex gap-3'>
-                <button className='bg-red h-10 px-6 text-white rounded-lg' onClick={() => handleClose(false)}>ตกลง</button>
+                <button className='bg-red h-10 px-6 text-white rounded-lg' onClick={onSubmit}>ตกลง</button>
                 <button className='border border-red h-10 px-6 text-red rounded-lg' onClick={() => handleClose(false)}>ยกเลิก</button>
               </div>
             </div>
