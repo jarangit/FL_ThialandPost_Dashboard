@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
-import SaveInformationModal from '../../../components/modal/saveInformationModal'
+import SavedModal from '../../../components/modal/savedModal'
 
 type Props = {
   setShowModal: any

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import SaveInformationModal from '../../../components/modal/saveInformationModal'
+import SavedModal from '../../../components/modal/savedModal'
 import InformationForm from '../components/informationForm'
 
 type Props = {}
@@ -27,7 +27,7 @@ const EditInformationPage = (props: Props) => {
       </div>
 
       {/* modal zone */}
-      <SaveInformationModal 
+      <SavedModal 
         open={showModal}
         handleClose={setShowModal}
       />

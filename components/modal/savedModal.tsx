@@ -28,7 +28,7 @@ const dropIn = {
   },
 };
 
-const SaveInformationModal = ({ handleClose, open }: Props) => {
+const SavedModal = ({ handleClose, open }: Props) => {
   return (
     <AnimatePresence>
       {open ? (
@@ -58,4 +58,4 @@ const SaveInformationModal = ({ handleClose, open }: Props) => {
   )
 }
 
-export default SaveInformationModal
+export default SavedModal
