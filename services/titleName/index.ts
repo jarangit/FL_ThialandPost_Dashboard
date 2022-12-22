@@ -1,8 +1,8 @@
 import axios from "axios";
 import { BASE_API } from "../../configs/constants/base";
 
-const getTitleNameList = async () => {
-  return await axios.get(`${BASE_API}/title?page=0&size=100`)
+const getTitleNameList = async (page: number) => {
+  return await axios.get(`${BASE_API}/title?page=${page || "0"}&size=10`)
     .then((res: any) => {
       return res
     })

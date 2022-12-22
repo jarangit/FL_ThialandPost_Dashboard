@@ -3,6 +3,7 @@ import { FaPen } from 'react-icons/fa'
 import { ImBin2 } from 'react-icons/im'
 import { useRowSelect, useTable } from 'react-table'
 import Button from '../../../components/buttons/button'
+import { Pagination } from '@mui/material'
 
 type Props = {
   onChangeMode: any;
