@@ -26,14 +26,11 @@ input:focus {
   display: flex;
   align-items: center;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  
 }
 
 /* Hide the browser's default checkbox */
@@ -43,7 +40,6 @@ input:focus {
   cursor: pointer;
   height: 0;
   width: 0;
-  
 }
 
 /* Create a custom checkbox */
@@ -51,10 +47,10 @@ input:focus {
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 15px;
+  width: 15px;
   background-color: #ffff;
-  border: 1px solid gray ;
+  border: 1px solid gray;
   border-radius: 3px;
 }
 
@@ -65,8 +61,8 @@ input:focus {
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: #D30D2B;
-  border: 1px solid  #D30D2B;
+  background-color: #d30d2b;
+  border: 1px solid #d30d2b;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -83,8 +79,8 @@ input:focus {
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
-  left: 9px;
-  top: 5px;
+  left: 5px;
+  top: 1px;
   width: 5px;
   height: 10px;
   border: solid white;

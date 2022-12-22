@@ -111,11 +111,11 @@ const InformationForm = ({ setShowModal }: Props) => {
             </div>
             <div className='col-span-1 lg:col-span-2 w-full'>
               <div className="flex items-center">
-                <label className="container">
-                  ที่อยู่เดียวกับที่อยู่จัดส่งเอกสาร
+                <label className="container w-fit bottom-2">
                   <input type="checkbox" />
                   <span className="checkmark"></span>
                 </label>
+                  <div className='ml-6'>ที่อยู่เดียวกับที่อยู่จัดส่งเอกสาร</div>
               </div>
             </div>
             <div>
