@@ -154,8 +154,8 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
           ลบทั้งหมด
         </Button>
       </div>
-      <div className='  my-6 overflow-hidden text-sm border-x border-gray-light'>
-        <table {...getTableProps()} className="w-full text-center">
+      <div className='  my-6 overflow-hidden text-sm border-x border-gray-light overflow-x-scroll lg:overflow-auto '>
+        <table {...getTableProps()} className="w-full text-center min-w-[700px] lg:min-w-full">
           <thead>
             {headerGroups.map(headerGroup => (
               // eslint-disable-next-line react/jsx-key
