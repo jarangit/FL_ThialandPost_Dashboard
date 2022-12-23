@@ -11,9 +11,11 @@ type Props = {
   dataTable: any;
   setActionID: any;
   onDeleteTitleName: any;
+  currentPage: any;
 }
 
-const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDeleteTitleName }: Props) => {
+const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDeleteTitleName, currentPage }: Props) => {
+  console.log('%cMyProject%cline:17%ccurrentPage', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(20, 68, 106);padding:3px;border-radius:2px', currentPage)
   // state zone
   const [data, setData] = useState([])
   const [id, setTd] = useState("")
@@ -37,7 +39,7 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
       const updatedAt = `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
       return {
         id: item.titleId,
-        rank: key + 1,
+        rank: key + 1 + (currentPage * 10),
         name: item.titleName,
         date: updatedAt,
         icon: <RenderIcon />

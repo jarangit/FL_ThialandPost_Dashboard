@@ -96,13 +96,22 @@ const menageNamePage = (props: Props) => {
 
           {/* table */}
           {mode == "DEFAULT" && (
-            <Table
-              onChangeMode={onChangeMode}
-              setShowModalDelete={() => setShowModalDelete(true)}
-              dataTable={dataTable}
-              setActionID={setActionID}
-              onDeleteTitleName={onDeleteTitleName}
-            />
+            <>
+              <Table
+                onChangeMode={onChangeMode}
+                setShowModalDelete={() => setShowModalDelete(true)}
+                dataTable={dataTable}
+                setActionID={setActionID}
+                onDeleteTitleName={onDeleteTitleName}
+                currentPage={currentPage}
+              />
+              <div className='flex justify-center'>
+                <Pagination
+                  count={Math.ceil(dataTable.total / dataTable.size)}
+                  onChange={handleChangePage}
+                />
+              </div>
+            </>
           )}
 
           {/* create name */}
@@ -126,12 +135,7 @@ const menageNamePage = (props: Props) => {
             />
           )}
         </div>
-        <div className='flex justify-center'>
-          <Pagination
-            count={Math.ceil(dataTable.total / dataTable.size)}
-            onChange={handleChangePage}
-          />
-        </div>
+
 
       </CardWhite>
 
