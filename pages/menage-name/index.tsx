@@ -77,7 +77,7 @@ const menageNamePage = (props: Props) => {
     if (mode == "UPDATE") {
       getTitleNameItem()
     }
-  }, [mode, actionID, currentPage])
+  }, [mode, currentPage])
   return (
     <div>
       <div className='flex items-center justify-between w-full border-b-2 border-gray-light pb-3 flex-wrap'>
