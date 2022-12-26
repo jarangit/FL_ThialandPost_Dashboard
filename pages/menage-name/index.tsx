@@ -10,6 +10,7 @@ import SavedModal from '../../components/modal/savedModal'
 import ConfirmDeleteModal from '../../components/modal/confirmDeleteModal'
 import { getTitleNameList, addTitleName, deleteTitleName, getTitleName, editTitleName } from '../../services/titleName'
 import { Pagination } from '@mui/material'
+import FailModal from '../../components/modal/failModal'
 
 type Props = {}
 
@@ -17,6 +18,7 @@ const menageNamePage = (props: Props) => {
   const [mode, setMode] = useState("DEFAULT")
   const [showModalSaved, setShowModalSaved] = useState(false)
   const [showModalDelete, setShowModalDelete] = useState(false)
+  const [showFailModal, setShowFailModal] = useState(false)
   const [dataTable, setDataTable] = useState({
     total: 0,
     page: 0,
@@ -87,7 +89,7 @@ const menageNamePage = (props: Props) => {
           {mode == "UPDATE" && "แก้ไขคำนำหน้าชื่อ"}
         </div>
         <div>
-          <InputSearch placeholder='Search candidates' />
+          <InputSearch />
         </div>
       </div>
 
@@ -105,10 +107,15 @@ const menageNamePage = (props: Props) => {
                 onDeleteTitleName={onDeleteTitleName}
                 currentPage={currentPage}
               />
-              <div className='flex justify-center'>
+              <div className='flex justify-between'>
+                <div>Total: {dataTable.total}</div>
                 <Pagination
                   count={Math.ceil(dataTable.total / dataTable.size)}
                   onChange={handleChangePage}
+                  shape="rounded"
+                  color='secondary'
+                  showFirstButton
+                  showLastButton
                 />
               </div>
             </>
@@ -121,6 +128,7 @@ const menageNamePage = (props: Props) => {
               setShowModalSaved={() => setShowModalSaved(true)}
               onSubmit={onAddTitleName}
               mode={mode}
+              setShowFailModal={() => setShowFailModal(true)}
             />
           )}
 
@@ -132,6 +140,7 @@ const menageNamePage = (props: Props) => {
               setShowModalSaved={() => setShowModalSaved(true)}
               onSubmit={onEditTitleName}
               dataTitleNameItem={dataTitleNameItem}
+              setShowFailModal={() => setShowFailModal(true)}
             />
           )}
         </div>
@@ -142,6 +151,7 @@ const menageNamePage = (props: Props) => {
       {/* modal zone */}
       <SavedModal handleClose={() => setShowModalSaved(false)} open={showModalSaved} onSubmit={() => onChangeMode("DEFAULT")} />
       <ConfirmDeleteModal handleClose={() => setShowModalDelete(false)} open={showModalDelete} onSubmit={onDeleteTitleName} />
+      <FailModal handleClose={() => setShowFailModal(false)} open={showFailModal} onSubmit={() => setShowFailModal(false)} />
     </div>
   )
 }
