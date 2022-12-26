@@ -8,9 +8,10 @@ type Props = {
   setShowModalSaved: any;
   onSubmit?: any;
   dataTitleNameItem?: any;
+  setShowFailModal: any;
 }
 
-const FormMenage = ({ onChangeMode, mode, setShowModalSaved, onSubmit, dataTitleNameItem }: Props) => {
+const FormMenage = ({ onChangeMode, mode, setShowModalSaved, onSubmit, dataTitleNameItem, setShowFailModal }: Props) => {
 
   const [titleName, setTitleName] = useState("")
   const [inputError, setInputError] = useState({
@@ -46,13 +47,20 @@ const FormMenage = ({ onChangeMode, mode, setShowModalSaved, onSubmit, dataTitle
 
     if (mode == "UPDATE") {
       const saved = await onSubmit({ ...objTitleNameUpdate })
-      if (saved) {
+      console.log('%cMyProject%cline:49%csaved', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(153, 80, 84);padding:3px;border-radius:2px', saved)
+      if (saved.statusText == "OK") {
         setShowModalSaved(true)
+      } else {
+        console.log("die")
+        setShowFailModal(true)
       }
     } else if (mode == "CREATE") {
       const saved = await onSubmit({ ...objTitleName })
-      if (saved) {
+      if (saved.statusText == "Created") {
         setShowModalSaved(true)
+      } else {
+        console.log("die")
+        setShowFailModal(true)
       }
     }
   }

@@ -36,7 +36,7 @@ const SideBarItem = ({ text, icon, url, subMenu, setShowSideBar, currentPath }: 
           {/* render submenu */}
           <div className=''>
             {subMenu.length > 0 ? (
-              <div className={`flex flex-col gap-3 mt-3  overflow-hidden ${show ? "max-h-[500px]" : "max-h-0"} transition-all duration-300`}>
+              <div className={`flex flex-col gap-3 pl-3  overflow-hidden ${show ? "max-h-[500px] mt-3" : "max-h-0"} transition-all duration-300`}>
                 {subMenu.map((item: any, key: any) => (
                   <div key={key} onClick={() => setShowSideBar(false)} className={` pl-7 p-1 rounded-md hover:text-white text-gray-light ${item.url === currentPath && item.url !== "/" ? "bg-blue-dark !text-white" : ""}`}>
                     <Link href={item.url}>

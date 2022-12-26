@@ -18,6 +18,10 @@ module.exports = {
         DEFAULT: '#D30D2B',
         dark: '#',
       },
+      'pink': {
+        DEFAULT: '#ffeaea',
+        dark: '#',
+      },
       'blue': {
         light: '#B9D2DD',
         DEFAULT: '#002369',
@@ -29,7 +33,7 @@ module.exports = {
         dark: '#',
       },
       'gray': {
-        supperLight: '#F9FAFB',
+        supperLight: '#ededed',
         light: '#D6D6D6',
         DEFAULT: '#969595',
         dark: '#707070',

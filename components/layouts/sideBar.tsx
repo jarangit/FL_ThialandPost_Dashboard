@@ -107,13 +107,13 @@ const SideBar = ({ showSideBar, setShowSideBar}: Props) => {
     }
   }, [pathname])
   return (
-    <div className={`bg-blue text-white mt-[100px] ${showSideBar ? "w-[350px] max-w-[350px] !pr-9" : "max-w-[80px] w-[50px] lg:w-[80px]"} transition-all p-5 px-3 lg:p-5 min-h-screen h-full fixed z-10`}>
+    <div className={`bg-blue text-white mt-[110px] ${showSideBar ? "w-[350px] max-w-[350px] !pr-9" : "max-w-[80px] w-[50px] lg:w-[80px]"} transition-all p-5 px-3 lg:p-5 min-h-screen h-full fixed z-10`}>
       <div onClick={() => setShowSideBar(!showSideBar)} className={`flex gap-1 items-center cursor-pointer`} >
         <AiOutlineMenuFold size={35} />
         <div className={`${showSideBar ? "block" : "hidden"}`} >เมนู</div>
       </div>
       {showSideBar && (
-        <div className='flex flex-col gap-1 mt-10'>
+        <div className='flex flex-col gap-1 mt-3'>
           {dataMenu.map((item, key) => (
             <div key={key}>
               <SideBarItem

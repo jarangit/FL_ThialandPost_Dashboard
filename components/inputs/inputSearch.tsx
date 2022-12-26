@@ -19,7 +19,7 @@ const InputSearch = ({placeholder}: Props) => {
       <AiOutlineSearch
         color='#9B9898'
       />
-      <input placeholder={placeholder ?? "Search"} className={`text-gray text-sm`} />
+      <input placeholder={placeholder ?? "ค้าหา"} className={`text-gray text-sm`} />
       <div className={`${styled.boxImage}`}>
         <Image
           src='/img/icons/control.svg'

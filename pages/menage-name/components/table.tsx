@@ -4,6 +4,7 @@ import { ImBin2 } from 'react-icons/im'
 import { useRowSelect, useTable } from 'react-table'
 import Button from '../../../components/buttons/button'
 import { Pagination } from '@mui/material'
+import { padNumber } from '../../../utils/padNumber'
 
 type Props = {
   onChangeMode: any;
@@ -15,10 +16,10 @@ type Props = {
 }
 
 const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDeleteTitleName, currentPage }: Props) => {
-  console.log('%cMyProject%cline:17%ccurrentPage', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(20, 68, 106);padding:3px;border-radius:2px', currentPage)
   // state zone
   const [data, setData] = useState([])
   const [id, setTd] = useState("")
+  const [updateDateState, setUpdateDateState] = useState('-')
 
   const RenderIcon = useCallback(() => {
     return (
@@ -36,7 +37,7 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
   const mapDataTable = async () => {
     const res = await dataTable?.list.map((item: any, key: any) => {
       const date = new Date(item.UpdatedDate)
-      const updatedAt = `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`
+      const updatedAt = `${item.UpdatedDate ? `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}` : "-"}`
       return {
         id: item.titleId,
         rank: key + 1 + (currentPage * 10),
@@ -140,7 +141,7 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
   }
   useEffect(() => {
     mapDataTable()
-  }, [dataTable])
+  }, [dataTable,])
 
   return (
     <>
@@ -160,33 +161,37 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
             {headerGroups.map(headerGroup => (
               // eslint-disable-next-line react/jsx-key
               <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column, key) => (
-                  <React.Fragment key={key}
-                  >
-                    <th
-                      {...column.getHeaderProps()}
-                      className={`p-2 border-y border-gray-light bg-gray-supperLight font-medium`}
+                {headerGroup.headers.map((column, key) => {
+                  const {props}:any =column.render('Cell')
+                  return (
+                    <React.Fragment key={key}
                     >
-                      {column.render('Header')}
-                    </th>
-                  </React.Fragment>
-                ))}
+                      <th
+                        {...column.getHeaderProps()}
+                        className={`p-2 border-y border-gray-light bg-gray-light font-medium ${props.column.id == "name" ? "text-left" : ""}`}
+                      >
+                        {column.render('Header')}
+                      </th>
+                    </React.Fragment>
+                  )
+                })}
               </tr>
             ))}
           </thead>
           <tbody {...getTableBodyProps()}>
-            {rows.map(row => {
+            {rows.map((row,key) => {
               prepareRow(row)
               return (
                 // eslint-disable-next-line react/jsx-key
-                <tr {...row.getRowProps()}>
-                  {row.cells.map(cell => {
+                <tr {...row.getRowProps()} className = {`${key % 2 ? "bg-gray-supperLight":""} hover:bg-pink transition-all`}>
+                  {row.cells.map((cell,key) => {
+                    const { props }: any = cell.render('Cell')
                     return (
                       // eslint-disable-next-line react/jsx-key
                       <td
                         onClick={() => onSetID({ row })}
                         {...cell.getCellProps()}
-                        className={`border-y border-gray-light p-2`}
+                        className={` p-2 font-thin  ${props.column.id == "name" ? "text-left " : ""}`}
                       >
                         {cell.render('Cell')}
                       </td>
