@@ -12,8 +12,7 @@ type Props = {
 }
 
 const FormMenage = ({ onChangeMode, mode, setShowModalSaved, onSubmit, dataTitleNameItem, setShowFailModal }: Props) => {
-const nowDate = new Date()
-console.log('%cMyProject%cline:15%cnowDate', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(131, 175, 155);padding:3px;border-radius:2px', nowDate)
+  const nowDate = new Date()
   const [titleName, setTitleName] = useState("")
   const [inputError, setInputError] = useState({
     status: false,
@@ -36,7 +35,6 @@ console.log('%cMyProject%cline:15%cnowDate', 'color:#fff;background:#ee6f57;padd
     forMemberType: ""
   })
 
-console.log(objTitleNameUpdate)
   const handleSubmit = async () => {
     if (titleName == "") {
       setInputError({
@@ -48,19 +46,20 @@ console.log(objTitleNameUpdate)
 
     if (mode == "UPDATE") {
       const saved = await onSubmit({ ...objTitleNameUpdate })
-      if (saved && saved.statusText == "OK") {
-        setShowModalSaved(true)
-      } else {
+      if (saved && saved?.response?.data.code == 104) {
         console.log("die")
         setShowFailModal(true)
+      } else {
+        setShowModalSaved(true)
       }
     } else if (mode == "CREATE") {
       const saved = await onSubmit({ ...objTitleName })
-      if (saved && saved.statusText == "Created") {
-        setShowModalSaved(true)
-      } else {
+      if (saved && saved?.response?.data.code == 104) {
+        console.log(saved.response.data)
         console.log("die")
         setShowFailModal(true)
+      } else {
+        setShowModalSaved(true)
       }
     }
   }
