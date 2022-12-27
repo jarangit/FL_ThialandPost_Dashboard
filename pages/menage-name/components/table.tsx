@@ -36,13 +36,16 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
 
   const mapDataTable = async () => {
     const res = await dataTable?.list.map((item: any, key: any) => {
-      const date = new Date(item.UpdatedDate)
-      const updatedAt = `${item.UpdatedDate ? `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}` : "-"}`
+      const dateUpdate = new Date(item.UpdatedDate)
+      const dateCreate = new Date(item.CreatedDate)
+      console.log(typeof item.UpdatedDate)
+      const updatedAt = `${item.UpdatedDate ? `${dateUpdate.getDate()}/${dateUpdate.getMonth() + 1}/${dateUpdate.getFullYear()}` : "-"}`
+      const createdAt = `${item.CreatedDate ? `${dateCreate.getDate()}/${dateCreate.getMonth() + 1}/${dateCreate.getFullYear()}` : "-"}`
       return {
         id: item.titleId,
         rank: key + 1 + (currentPage * 10),
         name: item.titleName,
-        date: updatedAt,
+        date: item.UpdatedDate ? updatedAt : createdAt,
         icon: <RenderIcon />
       }
     })
@@ -162,7 +165,7 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
               // eslint-disable-next-line react/jsx-key
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column, key) => {
-                  const {props}:any =column.render('Cell')
+                  const { props }: any = column.render('Cell')
                   return (
                     <React.Fragment key={key}
                     >
@@ -179,12 +182,12 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
             ))}
           </thead>
           <tbody {...getTableBodyProps()}>
-            {rows.map((row,key) => {
+            {rows.map((row, key) => {
               prepareRow(row)
               return (
                 // eslint-disable-next-line react/jsx-key
-                <tr {...row.getRowProps()} className = {`${key % 2 ? "bg-gray-supperLight":""} hover:bg-pink transition-all`}>
-                  {row.cells.map((cell,key) => {
+                <tr {...row.getRowProps()} className={`${key % 2 ? "bg-gray-supperLight" : ""} hover:bg-pink transition-all`}>
+                  {row.cells.map((cell, key) => {
                     const { props }: any = cell.render('Cell')
                     return (
                       // eslint-disable-next-line react/jsx-key
