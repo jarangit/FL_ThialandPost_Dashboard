@@ -116,6 +116,7 @@ const menageNamePage = (props: Props) => {
                   color='secondary'
                   showFirstButton
                   showLastButton
+                  page={dataTable.page + 1}
                 />
               </div>
             </>

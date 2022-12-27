@@ -12,29 +12,28 @@ type Props = {
 }
 
 const FormMenage = ({ onChangeMode, mode, setShowModalSaved, onSubmit, dataTitleNameItem, setShowFailModal }: Props) => {
-
+  const nowDate = new Date()
   const [titleName, setTitleName] = useState("")
   const [inputError, setInputError] = useState({
     status: false,
     message: ""
   })
-  const [objTitleName, setBbjTitleName] = useState({
+  const [objTitleName, setObjTitleName] = useState({
     isActive: "Y",
-    createdBy: "",
+    createdBy: nowDate,
     titleId: "",
     titleName: "",
     titleSap: "",
     forMemberType: "1"
   })
-  const [objTitleNameUpdate, setBbjTitleNameUpdate] = useState({
+  const [objTitleNameUpdate, setObjTitleNameUpdate] = useState({
     isActive: "",
-    updatedBy: "",
+    updatedBy: nowDate,
     titleId: "",
     titleName: "",
     titleSap: "",
     forMemberType: ""
   })
-
 
   const handleSubmit = async () => {
     if (titleName == "") {
@@ -47,29 +46,29 @@ const FormMenage = ({ onChangeMode, mode, setShowModalSaved, onSubmit, dataTitle
 
     if (mode == "UPDATE") {
       const saved = await onSubmit({ ...objTitleNameUpdate })
-      console.log('%cMyProject%cline:49%csaved', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(153, 80, 84);padding:3px;border-radius:2px', saved)
-      if (saved.statusText == "OK") {
-        setShowModalSaved(true)
-      } else {
+      if (saved && saved?.response?.data.code == 104) {
         console.log("die")
         setShowFailModal(true)
+      } else {
+        setShowModalSaved(true)
       }
     } else if (mode == "CREATE") {
       const saved = await onSubmit({ ...objTitleName })
-      if (saved.statusText == "Created") {
-        setShowModalSaved(true)
-      } else {
+      if (saved && saved?.response?.data.code == 104) {
+        console.log(saved.response.data)
         console.log("die")
         setShowFailModal(true)
+      } else {
+        setShowModalSaved(true)
       }
     }
   }
   useEffect(() => {
     // setBbjTitleName(dataTitleNameItem)
     if (mode == 'UPDATE' && dataTitleNameItem) {
-      setBbjTitleNameUpdate({
+      setObjTitleNameUpdate({
         isActive: dataTitleNameItem.isActive,
-        updatedBy: dataTitleNameItem.updatedBy || "",
+        updatedBy: nowDate,
         titleId: dataTitleNameItem.titleId,
         titleName: titleName !== "" ? titleName : dataTitleNameItem.titleName,
         titleSap: dataTitleNameItem.titleSap || "",
@@ -78,7 +77,7 @@ const FormMenage = ({ onChangeMode, mode, setShowModalSaved, onSubmit, dataTitle
     }
 
     if (titleName) {
-      setBbjTitleName({
+      setObjTitleName({
         ...objTitleName,
         titleName
       })
