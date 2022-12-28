@@ -8,6 +8,7 @@ type Props = {
   handleClose: any;
   open: boolean;
   onSubmit?: any;
+  titleName:string;
 }
 const dropIn = {
   hidden: {
@@ -30,7 +31,8 @@ const dropIn = {
   },
 };
 
-const FailModal = ({ handleClose, open, onSubmit}: Props) => {
+const FailModal = ({ handleClose, open, onSubmit, titleName}: Props) => {
+  console.log('%cMyProject%cline:34%ctitleName', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(56, 13, 49);padding:3px;border-radius:2px', titleName)
   return (
     <AnimatePresence>
       {open ? (
@@ -50,7 +52,7 @@ const FailModal = ({ handleClose, open, onSubmit}: Props) => {
               <div>
               <RiErrorWarningFill size={100} color="#ECCA20" />
               </div>
-              <div>{`บันทึกไม่สำเร็จ เนื่องจาก {คำนำหน้าชื่อ} ซ้ำ`}</div>
+              <div>{`บันทึกไม่สำเร็จ เนื่องจาก "${titleName}" ซ้ำ`}</div>
               <button  className='bg-red h-10 px-6 text-white rounded-lg' onClick={() => { handleClose(false); onSubmit();}}>ตกลง</button>
             </div>
           </motion.div>

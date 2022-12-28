@@ -9,11 +9,14 @@ type Props = {
   onSubmit?: any;
   dataTitleNameItem?: any;
   setShowFailModal: any;
+  setTitleName:any;
+  titleName:string;
+
 }
 
-const FormMenage = ({ onChangeMode, mode, setShowModalSaved, onSubmit, dataTitleNameItem, setShowFailModal }: Props) => {
+const FormMenage = ({ onChangeMode, mode, setShowModalSaved, onSubmit, dataTitleNameItem, setShowFailModal, titleName, setTitleName }: Props) => {
   const nowDate = new Date()
-  const [titleName, setTitleName] = useState("")
+  console.log('%cMyProject%cline:16%ctitleName', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(131, 175, 155);padding:3px;border-radius:2px', titleName)
   const [inputError, setInputError] = useState({
     status: false,
     message: ""

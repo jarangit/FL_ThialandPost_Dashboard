@@ -19,6 +19,8 @@ const menageNamePage = (props: Props) => {
   const [showModalSaved, setShowModalSaved] = useState(false)
   const [showModalDelete, setShowModalDelete] = useState(false)
   const [showFailModal, setShowFailModal] = useState(false)
+  const [titleName, setTitleName] = useState("")
+
   const [dataTable, setDataTable] = useState({
     total: 0,
     page: 0,
@@ -108,16 +110,18 @@ const menageNamePage = (props: Props) => {
                 currentPage={currentPage}
               />
               <div className='flex justify-between'>
-                <div>Total: {dataTable.total}</div>
-                <Pagination
-                  count={Math.ceil(dataTable.total / dataTable.size)}
-                  onChange={handleChangePage}
-                  shape="rounded"
-                  color='secondary'
-                  showFirstButton
-                  showLastButton
-                  page={dataTable.page + 1}
-                />
+                <div>จำนวนทั้งหมด: {dataTable.total}</div>
+                <div className='text-white'>
+                  <Pagination
+                    count={Math.ceil(dataTable.total / dataTable.size)}
+                    onChange={handleChangePage}
+                    shape="rounded"
+                    color='secondary'
+                    showFirstButton
+                    showLastButton
+                    page={dataTable.page + 1}
+                  />
+                </div>
               </div>
             </>
           )}
@@ -130,6 +134,8 @@ const menageNamePage = (props: Props) => {
               onSubmit={onAddTitleName}
               mode={mode}
               setShowFailModal={() => setShowFailModal(true)}
+              setTitleName={setTitleName}
+              titleName={titleName}
             />
           )}
 
@@ -142,6 +148,8 @@ const menageNamePage = (props: Props) => {
               onSubmit={onEditTitleName}
               dataTitleNameItem={dataTitleNameItem}
               setShowFailModal={() => setShowFailModal(true)}
+              setTitleName={setTitleName}
+              titleName={titleName}
             />
           )}
         </div>
@@ -152,7 +160,7 @@ const menageNamePage = (props: Props) => {
       {/* modal zone */}
       <SavedModal handleClose={() => setShowModalSaved(false)} open={showModalSaved} onSubmit={() => onChangeMode("DEFAULT")} />
       <ConfirmDeleteModal handleClose={() => setShowModalDelete(false)} open={showModalDelete} onSubmit={onDeleteTitleName} />
-      <FailModal handleClose={() => setShowFailModal(false)} open={showFailModal} onSubmit={() => setShowFailModal(false)} />
+      <FailModal handleClose={() => setShowFailModal(false)} open={showFailModal} onSubmit={() => setShowFailModal(false)} titleName = {titleName}/>
     </div>
   )
 }
