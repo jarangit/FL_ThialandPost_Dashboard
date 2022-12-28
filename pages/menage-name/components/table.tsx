@@ -23,7 +23,7 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
 
   const RenderIcon = useCallback(() => {
     return (
-      <div className='flex gap-3  justify-center items-center text-gray-dark'>
+      <div className='flex gap-3  justify-center items-center text-gray'>
         <div className={`cursor-pointer`} onClick={() => onChangeMode("UPDATE")}>
           <FaPen size={20} />
         </div>
@@ -194,7 +194,7 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
                       <td
                         onClick={() => onSetID({ row })}
                         {...cell.getCellProps()}
-                        className={` p-2 font-thin  ${props.column.id == "name" ? "text-left " : ""}`}
+                        className={` p-2 font-thin py-3 ${props.column.id == "name" ? "text-left " : ""}`}
                       >
                         {cell.render('Cell')}
                       </td>

@@ -95,3 +95,6 @@ input {
   -moz-appearance: none;
   appearance: none;
 }
+.css-1guuzyp-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  color: #eff1f2;
+}
