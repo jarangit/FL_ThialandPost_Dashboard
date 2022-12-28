@@ -8,7 +8,7 @@ type Props = {
   handleClose: any;
   open: boolean;
   onSubmit?: any;
-  titleName:string;
+  titleName: string;
 }
 const dropIn = {
   hidden: {
@@ -31,7 +31,7 @@ const dropIn = {
   },
 };
 
-const FailModal = ({ handleClose, open, onSubmit, titleName}: Props) => {
+const FailModal = ({ handleClose, open, onSubmit, titleName }: Props) => {
   console.log('%cMyProject%cline:34%ctitleName', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(56, 13, 49);padding:3px;border-radius:2px', titleName)
   return (
     <AnimatePresence>
@@ -50,14 +50,22 @@ const FailModal = ({ handleClose, open, onSubmit, titleName}: Props) => {
           >
             <div className='flex flex-col items-center gap-6'>
               <div>
-              <RiErrorWarningFill size={100} color="#ECCA20" />
+                <RiErrorWarningFill size={100} color="#ECCA20" />
               </div>
-              <div>{`บันทึกไม่สำเร็จ เนื่องจาก "${titleName}" ซ้ำ`}</div>
-              <button  className='bg-red h-10 px-6 text-white rounded-lg' onClick={() => { handleClose(false); onSubmit();}}>ตกลง</button>
+
+              <div className='text-center'>
+                <div>
+                  บันทึกไม่สำเร็จ
+                </div>
+                <div>
+                  {` เนื่องจาก "${titleName}" ซ้ำ`}
+                </div>
+              </div>
+              <button className='bg-red h-10 px-6 text-white rounded-lg' onClick={() => { handleClose(false); onSubmit(); }}>ตกลง</button>
             </div>
           </motion.div>
         </Backdrop>
-      ):null}
+      ) : null}
     </AnimatePresence>
   )
 }

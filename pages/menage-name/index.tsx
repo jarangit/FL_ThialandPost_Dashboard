@@ -11,10 +11,22 @@ import ConfirmDeleteModal from '../../components/modal/confirmDeleteModal'
 import { getTitleNameList, addTitleName, deleteTitleName, getTitleName, editTitleName } from '../../services/titleName'
 import { Pagination } from '@mui/material'
 import FailModal from '../../components/modal/failModal'
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(() => ({
+  ul: {
+    "& .css-1guuzyp-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected": {
+      color: "#fff"
+    }
+  }
+}));
 
 type Props = {}
 
 const menageNamePage = (props: Props) => {
+  const classes = useStyles();
+  console.log('%cMyProject%cline:27%cclasses', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(34, 8, 7);padding:3px;border-radius:2px', classes)
+  console.log('%cMyProject%cline:26%cclasses', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(153, 80, 84);padding:3px;border-radius:2px', classes)
   const [mode, setMode] = useState("DEFAULT")
   const [showModalSaved, setShowModalSaved] = useState(false)
   const [showModalDelete, setShowModalDelete] = useState(false)
@@ -110,7 +122,7 @@ const menageNamePage = (props: Props) => {
                 currentPage={currentPage}
               />
               <div className='flex justify-between'>
-                <div>จำนวนทั้งหมด: {dataTable.total}</div>
+                <div>จำนวนทั้งหมด: {dataTable.total} รายการ</div>
                 <div className='text-white'>
                   <Pagination
                     count={Math.ceil(dataTable.total / dataTable.size)}
@@ -120,6 +132,7 @@ const menageNamePage = (props: Props) => {
                     showFirstButton
                     showLastButton
                     page={dataTable.page + 1}
+                    classes={{ ul: classes.ul }}
                   />
                 </div>
               </div>
