@@ -22,6 +22,14 @@ module.exports = {
         DEFAULT: '#ffeaea',
         dark: '#',
       },
+      'green': {
+        DEFAULT: '#29BE5A',
+        dark: '#',
+      },
+      'yellow': {
+        DEFAULT: '#D9AB3F',
+        dark: '#',
+      },
       'blue': {
         light: '#B9D2DD',
         DEFAULT: '#002369',

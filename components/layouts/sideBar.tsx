@@ -26,7 +26,7 @@ const dataMenu = [
       {
         icon: '',
         text: 'ข้อมูลคำสั่งประจำ',
-        url: '#',
+        url: '/information-command',
       },
       {
         icon: '',

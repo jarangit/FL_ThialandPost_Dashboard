@@ -1,0 +1,36 @@
+export const mockDataTableCommand = [{
+  "rank": 1,
+  "typeProduct": "01-แสตมป์ที่ระลึก",
+  "counts": 16,
+  "countsPaper": 3,
+  "specialOrder": "VIP",
+  "status": "ADD"
+}, {
+  "rank": 2,
+  "typeProduct": "04-แผ่นแสตมป์ที่ระลึก",
+  "counts": 3,
+  "countsPaper": 13,
+  "specialOrder": "VIP",
+  "status": "EDIT"
+}, {
+  "rank": 3,
+  "typeProduct": "05-ซองวันแรกจำหน่าย",
+  "counts": 13,
+  "countsPaper": 10,
+  "specialOrder": "-",
+  "status": "DELETE"
+}, {
+  "rank": 4,
+  "typeProduct": "16-ซองที่ระลึก",
+  "counts": 15,
+  "countsPaper": 7,
+  "specialOrder": "VIP",
+  "status": "ONLINE"
+}, {
+  "rank": 5,
+  "typeProduct": "18-สมุดแสตมป์ประจำปี",
+  "counts": 29,
+  "countsPaper": 22,
+  "specialOrder": "-",
+  "status": "ONLINE"
+}]
