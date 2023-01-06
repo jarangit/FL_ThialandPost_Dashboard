@@ -38,7 +38,6 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
     const res = await dataTable?.list.map((item: any, key: any) => {
       const dateUpdate = new Date(item.UpdatedDate)
       const dateCreate = new Date(item.CreatedDate)
-      console.log(typeof item.UpdatedDate)
       const updatedAt = `${item.UpdatedDate ? `${dateUpdate.getDate()}/${dateUpdate.getMonth() + 1}/${dateUpdate.getFullYear()}` : "-"}`
       const createdAt = `${item.CreatedDate ? `${dateCreate.getDate()}/${dateCreate.getMonth() + 1}/${dateCreate.getFullYear()}` : "-"}`
       return {
