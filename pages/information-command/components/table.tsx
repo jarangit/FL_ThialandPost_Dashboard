@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useRowSelect, useTable } from 'react-table'
 import { mockDataTableCommand } from '../../../constants/mockDataTableCommand'
-type Props = {}
+import { FaPen } from 'react-icons/fa';
+import { ImBin2 } from 'react-icons/im';
+import { GiHamburgerMenu } from 'react-icons/gi';
+type Props = {
+  mode?: string;
+}
 
 interface DataTable {
   rank: number;
@@ -10,8 +15,9 @@ interface DataTable {
   countsPaper: number;
   specialOrder: string;
   status: any;
+  manage: any
 }
-const Table = (props: Props) => {
+const Table = ({ mode }: Props) => {
   const RenderCheckColor = (type: string) => {
     switch (type) {
       case "ADD":
@@ -27,13 +33,33 @@ const Table = (props: Props) => {
         break;
     }
   }
+  const RenderItemManage = () => {
+    if (mode === "CREATE") {
+      return (
+        <div className='flex gap-3  justify-center items-center text-gray'>
+        <div className={`cursor-pointer`} >
+          <GiHamburgerMenu size={25} />
+        </div>
+        <div className={`cursor-pointer`} >
+          <FaPen size={20} />
+        </div>
+        <div className={`cursor-pointer`}>
+          <ImBin2 size={20}  />
+        </div>
+      </div>
+      )
+    } else {
+      return null
+    }
+  }
   const [data, setData] = useState<Array<DataTable>>([])
   const mapDataTable = async () => {
-    const res = await mockDataTableCommand.map((item) => {
+    const res = mockDataTableCommand.map((item) => {
       return {
         ...item,
-        status: <>{RenderCheckColor(item.status)}</>
-      }
+        status: <>{RenderCheckColor(item.status)}</>,
+        manage: <RenderItemManage />
+      };
     })
     if (res) {
       setData(res)
@@ -64,6 +90,10 @@ const Table = (props: Props) => {
       {
         Header: 'สถานะ  ',
         accessor: 'status',
+      },
+      {
+        Header: 'จัดการ  ',
+        accessor: 'manage',
       },
     ],
     []
@@ -106,7 +136,11 @@ const Table = (props: Props) => {
                   >
                     <th
                       {...column.getHeaderProps()}
-                      className={`p-2 border-y border-gray-light bg-gray-light font-medium ${props.column.id == "name" ? "text-left" : ""}`}
+                      className={`
+                      p-2 border-y border-gray-light bg-gray-light font-medium 
+                      ${props.column.id == "typeProduct" ? "text-center" : ""}
+                      ${props.column.id == "manage" && mode !== "CREATE" && "hidden"}
+                      `}
                     >
                       {column.render('Header')}
                     </th>
@@ -129,7 +163,10 @@ const Table = (props: Props) => {
                     <td
                       // onClick={() => onSetID({ row })}
                       {...cell.getCellProps()}
-                      className={` p-2 font-thin py-3 ${props.column.id == "name" ? "text-left " : ""}`}
+                      className={` p-2 font-thin py-3 
+                      ${props.column.id == "typeProduct" ? "text-left " : ""}
+                      ${props.column.id == "manage" && mode !== "CREATE" && "hidden"}
+                      `}
                     >
                       {cell.render('Cell')}
                     </td>
