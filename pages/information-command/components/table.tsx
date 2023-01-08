@@ -34,16 +34,16 @@ const Table = ({ mode }: Props) => {
     }
   }
   const RenderItemManage = () => {
-    if (mode === "CREATE") {
+    if (mode === "MANAGE") {
       return (
         <div className='flex gap-3  justify-center items-center text-gray'>
-        <div className={`cursor-pointer`} >
+        <div className={`cursor-pointer hover:text-red`} >
           <GiHamburgerMenu size={25} />
         </div>
-        <div className={`cursor-pointer`} >
+        <div className={`cursor-pointer hover:text-red`} >
           <FaPen size={20} />
         </div>
-        <div className={`cursor-pointer`}>
+        <div className={`cursor-pointer hover:text-red`}>
           <ImBin2 size={20}  />
         </div>
       </div>
@@ -139,7 +139,7 @@ const Table = ({ mode }: Props) => {
                       className={`
                       p-2 border-y border-gray-light bg-gray-light font-medium 
                       ${props.column.id == "typeProduct" ? "text-center" : ""}
-                      ${props.column.id == "manage" && mode !== "CREATE" && "hidden"}
+                      ${props.column.id == "manage" && mode !== "MANAGE" && "hidden"}
                       `}
                     >
                       {column.render('Header')}
@@ -165,7 +165,7 @@ const Table = ({ mode }: Props) => {
                       {...cell.getCellProps()}
                       className={` p-2 font-thin py-3 
                       ${props.column.id == "typeProduct" ? "text-left " : ""}
-                      ${props.column.id == "manage" && mode !== "CREATE" && "hidden"}
+                      ${props.column.id == "manage" && mode !== "MANAGE" && "hidden"}
                       `}
                     >
                       {cell.render('Cell')}
