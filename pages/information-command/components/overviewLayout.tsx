@@ -11,7 +11,7 @@ const OverviewLayout = ({setGoToCreate}: Props) => {
   return (
     <div>
       <div className='w-full flex justify-end'>
-        <Button onClick={() => setGoToCreate(true)}>จัดการข้อมูลคำสั่งประจำ</Button>
+        <Button onClick={() => setGoToCreate("MANAGE")}>จัดการข้อมูลคำสั่งประจำ</Button>
       </div>
       <div>
         <Table />
