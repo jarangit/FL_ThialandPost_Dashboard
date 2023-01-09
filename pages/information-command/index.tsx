@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import CardWhite from '../../components/cards/cardWhite'
 import Button from '../../components/buttons/button'
 import Table from './components/table'
@@ -8,15 +8,36 @@ import FormCreateLayout from './components/formCreateLayout'
 import SavedModal from '../../components/modal/savedModal'
 import ConfirmDeleteModal from '../../components/modal/confirmDeleteModal'
 import DetailModal from './components/detailModal'
+import { makeStyles } from "@material-ui/core/styles";
+import { Pagination } from '@mui/material'
 
 type Props = {}
-
+const useStyles = makeStyles(() => ({
+  button: {
+    "& .css-1guuzyp-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected": {
+      color: "#fff"
+    }
+  }
+}));
 const InformationCommandPage = (props: Props) => {
   const [goToCreate, setGoToCreate] = useState("DEFAULT")
   const [showModalSaved, setShowModalSaved] = useState(false)
   const [showModalDelete, setShowModalDelete] = useState(false)
   const [showModalDetail, setShowModalDetail] = useState(false)
+  const classes = useStyles();
+  const [currentPage, setCurrentPage] = useState(0)
+  const [dataTable, setDataTable] = useState({
+    total: 5,
+    page: 0,
+    size: 5,
+    list: []
+  })
+  const handleChangePage = (e: any, p: any) => {
+    setCurrentPage(p - 1);
+  };
+  useEffect(() => {
 
+  }, [currentPage])
   return (
     <>
       {/* modal zone */}
@@ -32,6 +53,21 @@ const InformationCommandPage = (props: Props) => {
           {goToCreate == "DEFAULT" && <OverviewLayout setGoToCreate={setGoToCreate} />}
           {goToCreate == "MANAGE" && <ManageLayout setGoToCreate={setGoToCreate} setShowModalDelete={setShowModalDelete} setShowModalDetail={setShowModalDetail} />}
           {goToCreate == "CREATE" && <FormCreateLayout setGoToCreate={setGoToCreate} setShowModalSaved={setShowModalSaved} />}
+        </div>
+        <div className={`flex justify-between ${goToCreate == "CREATE" && "hidden"}`}>
+          <div>จำนวนทั้งหมด: {dataTable.total} รายการ</div>
+          <div className='text-white'>
+            <Pagination
+              count={Math.ceil(dataTable.total / dataTable.size)}
+              onChange={handleChangePage}
+              shape="rounded"
+              color='secondary'
+              showFirstButton
+              showLastButton
+              page={dataTable.page + 1}
+              classes={{ ul: classes.button }}
+            />
+          </div>
         </div>
       </CardWhite>
     </>
