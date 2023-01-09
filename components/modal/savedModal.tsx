@@ -39,7 +39,7 @@ const SavedModal = ({ handleClose, open, onSubmit}: Props) => {
         >
           <motion.div
             onClick={(e) => e.stopPropagation()}
-            className=" bg-white max-w-[600px] w-full h-fit p-10 rounded-lg drop-shadow-lg"
+            className=" bg-white max-w-[600px] w-full h-fit p-10 rounded-lg drop-shadow-lg "
             variants={dropIn}
             initial="hidden"
             animate="visible"
