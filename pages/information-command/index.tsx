@@ -54,7 +54,7 @@ const InformationCommandPage = (props: Props) => {
           {goToCreate == "MANAGE" && <ManageLayout setGoToCreate={setGoToCreate} setShowModalDelete={setShowModalDelete} setShowModalDetail={setShowModalDetail} />}
           {goToCreate == "CREATE" && <FormCreateLayout setGoToCreate={setGoToCreate} setShowModalSaved={setShowModalSaved} />}
         </div>
-        <div className={`flex justify-between ${goToCreate == "CREATE" && "hidden"}`}>
+        <div className={`flex gap-3 lg:justify-between ${goToCreate == "CREATE" && "hidden"} flex-wrap mt-6 w-full justify-center`}>
           <div>จำนวนทั้งหมด: {dataTable.total} รายการ</div>
           <div className='text-white'>
             <Pagination
