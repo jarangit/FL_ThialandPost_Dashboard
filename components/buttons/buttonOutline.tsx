@@ -10,7 +10,7 @@ const ButtonOutline = ({ children, disabled, onClick }: Props) => {
   return (
     <div
       onClick={onClick}
-      className={`h-9 p-3 text-red flex items-center justify-center bg-white w-fit rounded-lg border border-gray-light cursor-pointer`}>
+      className={`h-9 p-3 text-red flex items-center justify-center bg-white w-full lg:w-fit rounded-lg border border-gray-light cursor-pointer`}>
       {children}
     </div>
   )

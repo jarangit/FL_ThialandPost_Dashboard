@@ -21,13 +21,12 @@ const FormCreateLayout = ({ setGoToCreate, setShowModalSaved }: Props) => {
     setShowModalSaved(true)
   }
   return (
-    <div>
-
-      <div className='w-full flex justify-end gap-3'>
+    <div className='flex flex-col'>
+      <div className='w-full flex justify-end gap-3 order-2 lg:order-1'>
         <Button onClick={onSave} >บันทึก</Button>
         <ButtonOutline onClick={() => setGoToCreate("MANAGE")}>ยกเลิก</ButtonOutline>
       </div>
-      <div>
+      <div className='order-1 lg:order-2 mb-6 lg:mb-0'>
         <FormCreate onSave={onSave} setDataForm={setDataForm} dataForm={dataForm} />
       </div>
     </div>
