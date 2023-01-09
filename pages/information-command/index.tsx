@@ -15,7 +15,7 @@ const InformationCommandPage = (props: Props) => {
   const [goToCreate, setGoToCreate] = useState("DEFAULT")
   const [showModalSaved, setShowModalSaved] = useState(false)
   const [showModalDelete, setShowModalDelete] = useState(false)
-  const [showModalDetail, setShowModalDetail] = useState(true)
+  const [showModalDetail, setShowModalDetail] = useState(false)
 
   return (
     <>
