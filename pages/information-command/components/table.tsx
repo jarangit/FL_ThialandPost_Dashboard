@@ -6,6 +6,10 @@ import { ImBin2 } from 'react-icons/im';
 import { GiHamburgerMenu } from 'react-icons/gi';
 type Props = {
   mode?: string;
+  setShowModalDelete?: any
+  setGoToCreate?: any
+  setShowModalDetail?: any
+
 }
 
 interface DataTable {
@@ -17,7 +21,7 @@ interface DataTable {
   status: any;
   manage: any
 }
-const Table = ({ mode }: Props) => {
+const Table = ({ mode, setShowModalDelete, setGoToCreate, setShowModalDetail }: Props) => {
   const RenderCheckColor = (type: string) => {
     switch (type) {
       case "ADD":
@@ -37,16 +41,16 @@ const Table = ({ mode }: Props) => {
     if (mode === "MANAGE") {
       return (
         <div className='flex gap-3  justify-center items-center text-gray'>
-        <div className={`cursor-pointer hover:text-red`} >
-          <GiHamburgerMenu size={25} />
+          <div className={`cursor-pointer hover:text-red`} >
+            <GiHamburgerMenu size={25} onClick={() => setShowModalDetail(true)} />
+          </div>
+          <div className={`cursor-pointer hover:text-red`} onClick={() => setGoToCreate("CREATE")} >
+            <FaPen size={20} />
+          </div>
+          <div className={`cursor-pointer hover:text-red`} onClick={() => setShowModalDelete(true)}>
+            <ImBin2 size={20} />
+          </div>
         </div>
-        <div className={`cursor-pointer hover:text-red`} >
-          <FaPen size={20} />
-        </div>
-        <div className={`cursor-pointer hover:text-red`}>
-          <ImBin2 size={20}  />
-        </div>
-      </div>
       )
     } else {
       return null

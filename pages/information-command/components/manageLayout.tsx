@@ -5,9 +5,11 @@ import ButtonOutline from '../../../components/buttons/buttonOutline';
 
 type Props = {
   setGoToCreate: any;
+  setShowModalDelete: any;
+  setShowModalDetail: any;
 }
 
-const ManageLayout = ({ setGoToCreate }: Props) => {
+const ManageLayout = ({ setGoToCreate,setShowModalDelete,setShowModalDetail }: Props) => {
   return (
     <div>
       <div className='w-full flex justify-end gap-3'>
@@ -18,7 +20,7 @@ const ManageLayout = ({ setGoToCreate }: Props) => {
         <div>โปรดทราบ : หากคุณแก้ไขข้อมูลคำสั่งประจำของคุณ จะไม่สามารถแก้ไขข้อมูลได้ภายใน 90 วัน จนกว่าเจ้าหน้าที่จะอนุมัติการแก้ไขข้อมูล</div>
       </div>
       <div>
-        <Table mode={"MANAGE"} />
+        <Table mode={"MANAGE"} setShowModalDelete={setShowModalDelete} setGoToCreate= {setGoToCreate} setShowModalDetail ={setShowModalDetail}/>
       </div>
     </div>
   )
