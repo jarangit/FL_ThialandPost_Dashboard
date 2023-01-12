@@ -43,7 +43,7 @@ const FormCreate = ({ onSave, setDataForm, dataForm }: Props) => {
 
   const styled = {
     input: `
-    border-[1px] border-gray-light p-2 rounded-md drop-shadow-sm w-full mt-1 placeholder:text-gray
+    border-[1px] border-gray-light p-2 rounded-md drop-shadow-sm w-full mt-1 placeholder:text-gray font-thin
     `
   }
   const onChangeDataForm = (e: any) => {

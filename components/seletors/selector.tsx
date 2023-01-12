@@ -13,7 +13,7 @@ const Selector = ({ onChangeDataForm, name, options }: any) => {
         <MdOutlineKeyboardArrowDown size={20} />
       </label> */}
       {/* <label>{label}</label> */}
-      <select name={name} onChange={(e) => onChangeDataForm(e)} className={' border w-full p-2 rounded-md border-gray-light cursor-pointer minimal'}>
+      <select name={name} onChange={(e) => onChangeDataForm(e)} className={' border w-full p-2 rounded-md border-gray-light cursor-pointer minimal font-thin'}>
         {options.map((item: any, key: any) => (
           <React.Fragment key={key}>
             <option value={item.value}>{item.label}</option>

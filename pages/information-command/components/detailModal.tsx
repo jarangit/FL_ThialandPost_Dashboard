@@ -46,23 +46,23 @@ const DetailModal = ({ handleClose, open, onSubmit }: Props) => {
             animate="visible"
             exit="hidden"
           >
-            <div className='flex flex-col  gap-6'>
-              <div>รายละเอียดคำสั่งซื้อประจำ</div>
+            <div className='border-b border-gray-light pb-3'>รายละเอียดคำสั่งซื้อประจำ</div>
+            <div className='flex flex-col  gap-6 mt-6 ml-0 lg:ml-16'>
               <div>
                 <div>ประเภทสินค้า</div>
-                <div className='text-gray ml-3'>01 - แสตมป์ที่ระลึก</div>
+                <div className='text-gray font-thin ml-3'>01 - แสตมป์ที่ระลึก</div>
               </div>
               <div>
                 <div>คำสั่งพิเศษ</div>
-                <div className='text-gray ml-3'>VIP</div>
+                <div className='text-gray font-thin ml-3'>VIP</div>
               </div>
               <div>
                 <div>หมายเหตุ</div>
-                <div className='text-gray ml-3'>-</div>
+                <div className='text-gray font-thin ml-3'>-</div>
               </div>
               <div>
                 <div>สถานะ</div>
-                <div className='text-green ml-3'>ใช้งาน</div>
+                <div className='text-green ml-3 font-thin'>ใช้งาน</div>
               </div>
               <button className='bg-red h-10 px-6 text-white rounded-lg w-fit mx-auto' onClick={() => { handleClose(false) }}>ปิด</button>
 

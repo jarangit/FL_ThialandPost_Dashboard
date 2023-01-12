@@ -1,12 +1,13 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import Input from '../../../components/inputs/input';
+import InputPassword from '../../../components/inputs/inputPassword';
 
 type Props = {
-  setShowModalSaved:any;
+  setShowModalSaved: any;
 }
 
-const ResetPasswordForm = ({setShowModalSaved}: Props) => {
+const ResetPasswordForm = ({ setShowModalSaved }: Props) => {
   const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm();
   const onSubmit = (data: any) => console.log(data);
 
@@ -16,18 +17,18 @@ const ResetPasswordForm = ({setShowModalSaved}: Props) => {
       <div className='grid grid-cols-1 lg:grid-cols-2 mt-4 w-full gap-6'>
         <div className='flex flex-col gap-2'>
           <div>รหัสผ่านเดิม</div>
-          <input type="password" className='border rounded-lg p-2 border-gray-light' />
+          <InputPassword />
 
         </div>
         <div className='flex flex-col gap-6'>
           <div className='flex flex-col gap-2'>
             <div>รหัสผ่านใหม่</div>
-            <input type="password" className='border rounded-lg p-2 border-gray-light' />
+            <InputPassword />
 
           </div>
           <div className='flex flex-col gap-2'>
             <div>ยืนยันรหัสผ่านใหม่</div>
-            <input type="password" className='border rounded-lg p-2 border-gray-light' />
+            <InputPassword />
           </div>
         </div>
       </div>

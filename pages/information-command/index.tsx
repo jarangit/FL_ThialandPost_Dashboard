@@ -48,6 +48,11 @@ const InformationCommandPage = (props: Props) => {
       />
       <ConfirmDeleteModal handleClose={() => setShowModalDelete(false)} open={showModalDelete} onSubmit={() => { setShowModalDelete(false) }} />
       <DetailModal handleClose={() => setShowModalDetail(false)} open={showModalDetail} />
+      <div className='border-b-2 border-gray-light pb-3 text-xl'>
+        {goToCreate === "DEFAULT" && "ข้อมูลคำสั่งประจำ"}
+        {goToCreate === "MANAGE" && "แก้ไขข้อมูลคำสั่งประจำ"}
+        {goToCreate === "CREATE" && "สร้างข้อมูลคำสั่งประจำ"}
+      </div>
       <CardWhite>
         <div>
           {goToCreate == "DEFAULT" && <OverviewLayout setGoToCreate={setGoToCreate} />}
