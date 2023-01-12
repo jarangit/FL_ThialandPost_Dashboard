@@ -1,0 +1,51 @@
+export const mockDataStatementTable = [{
+  "date": "10/12/2022",
+  "type": "Tabitha",
+  "addAccount": "Gomm",
+  "delAccount": "OVE",
+  "vat": 10,
+  "no": 1551,
+  "balance": 5080,
+  "note": "NA",
+  "manage": "AS"
+}, {
+  "date": "4/20/2022",
+  "type": "Morganica",
+  "addAccount": "Klementz",
+  "delAccount": "SKH",
+  "vat": 2,
+  "no": 6312,
+  "balance": 7336,
+  "note": "AS",
+  "manage": "EU"
+}, {
+  "date": "10/20/2022",
+  "type": "Worthington",
+  "addAccount": "Schirach",
+  "delAccount": "FRC",
+  "vat": 9,
+  "no": 8830,
+  "balance": 3275,
+  "note": "SA",
+  "manage": "AF"
+}, {
+  "date": "6/29/2022",
+  "type": "Justus",
+  "addAccount": "Johnsee",
+  "delAccount": "BNH",
+  "vat": 2,
+  "no": 9068,
+  "balance": 3360,
+  "note": "NA",
+  "manage": "AS"
+}, {
+  "date": "3/31/2022",
+  "type": "Gretchen",
+  "addAccount": "Haspineall",
+  "delAccount": "ISI",
+  "vat": 1,
+  "no": 2071,
+  "balance": 7756,
+  "note": "OC",
+  "manage": "EU"
+}]

@@ -8,8 +8,8 @@ import SideBarItem from './sideBarItem'
 import { MdLibraryBooks } from 'react-icons/md'
 import { useRouter } from 'next/router'
 type Props = {
-  showSideBar:any;
-  setShowSideBar:any;
+  showSideBar: any;
+  setShowSideBar: any;
 }
 
 const dataMenu = [
@@ -45,13 +45,9 @@ const dataMenu = [
     icon: <CgArrowAlignV size={25} />,
     text: `รายละเอียดข้อมูลทางบัญชี 
     (Statement)`,
-    url: '#',
+    url: '/statements',
     children: [
-      {
-        icon: '',
-        text: 'test',
-        url: '/information',
-      },
+
     ]
   },
   {
@@ -59,7 +55,7 @@ const dataMenu = [
     text: 'สั่งจองสั่งซื้อ',
     url: '#',
     children: [
-      
+
     ]
   },
   {
@@ -68,7 +64,7 @@ const dataMenu = [
     ยังไม่ได้รับตามคำสั่งประจำ`,
     url: '#',
     children: [
-      
+
     ]
   },
   {
@@ -76,7 +72,7 @@ const dataMenu = [
     text: 'ติดตาม/สอบถามข้อมูล',
     url: '#',
     children: [
-      
+
     ]
   },
   {
@@ -84,7 +80,7 @@ const dataMenu = [
     text: 'เพิ่มเงินบัญชีสมาชิก',
     url: '#',
     children: [
-      
+
     ]
   },
   {
@@ -92,16 +88,16 @@ const dataMenu = [
     text: 'จัดการคำนำชื่อ',
     url: '/menage-name',
     children: [
-      
+
     ]
   },
 ]
-const SideBar = ({ showSideBar, setShowSideBar}: Props) => {
+const SideBar = ({ showSideBar, setShowSideBar }: Props) => {
   const [currentPath, setCurrentPath] = useState("")
-  const {pathname} = useRouter()
+  const { pathname } = useRouter()
 
   useEffect(() => {
-    if(pathname){
+    if (pathname) {
       const found = pathname.toString().split("/")
       setCurrentPath(`/${found[1]}`)
     }
@@ -121,8 +117,8 @@ const SideBar = ({ showSideBar, setShowSideBar}: Props) => {
                 url={item?.url || ""}
                 subMenu={item.children || []}
                 icon={item.icon}
-                setShowSideBar = {setShowSideBar}
-                currentPath = {currentPath}
+                setShowSideBar={setShowSideBar}
+                currentPath={currentPath}
               />
             </div>
           ))}
