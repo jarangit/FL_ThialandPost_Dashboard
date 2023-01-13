@@ -163,7 +163,10 @@ const StatementDetailTable = ({ mode, setShowModalDelete, setGoToCreate, setShow
                       // onClick={() => onSetID({ row })}
                       {...cell.getCellProps()}
                       className={` p-2 font-thin py-3
-                      ${props.column.id == "typeProduct" ? "text-left " : ""}
+                      ${props.column.id == "addAccount" ||
+                      props.column.id == "delAccount" ||
+                      props.column.id == "balance" 
+                       ? "text-right " : ""}
                       `}
                     >
                       {cell.render('Cell')}

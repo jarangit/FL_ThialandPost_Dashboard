@@ -16,17 +16,19 @@ const StatementsPage = (props: Props) => {
           </Link>
         </div>
         {/* contnets */}
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6'>
-          <CardStatement />
-          <CardStatement color='#FCC1B1' />
-          <CardStatement color='#EFBDC7' />
-          <CardStatement color='#FCC1B1' />
-          <CardStatement color='#BEDFF7' />
-          <CardStatement color='#BBE2D7' />
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-3 mt-3'>
+          <CardStatement title={'คำสั่งประจำตราไปรฯ (บาท) '} balance={'1,580.00'} availableBalance={'1,580.00'} />
+          <CardStatement color='#FCC1B1' title={'คำสั่งประจำสิ่งสะสม (บาท) '} balance={'1,000.00'} availableBalance={'1,000.00'} />
+          <CardStatement color='#EFBDC7' title={'คำสั่งซื้อ/สั่งจองตราไปรฯ (บาท) '} balance={'1,580.00'} availableBalance={'0.00'} />
+          <CardStatement color='#FCC1B1' title={'คำสั่งซื้อ/สั่งจองสิ่งสะสม (บาท) '} balance={'0.00'} availableBalance={'0.00'} />
+          <CardStatement color='#BEDFF7' title={`ประเภทเงินนิตยสารแสตมป์
+และสิ่งสะสม (บาท) `} balance={'0.00'} availableBalance={'0.00'} />
+          <CardStatement color='#BBE2D7' title={`ประเภทเงินจุลสารข่าวแสตมป์ไทย 
+(บาท) `} balance={'0.00'} availableBalance={'0.00'} />
         </div>
 
         {/* footer text */}
-        <div className='w-full flex justify-end flex-col items-end mt-10 gap-3'>
+        <div className='w-full flex justify-end flex-col items-end mt-3 gap-1'>
           <div className='flex items-center gap-3 lg:gap-24'>
             <div>ยอดเงินคงเหลือรวม (บาท)</div>
             <div>3,580.00</div>

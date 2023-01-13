@@ -52,12 +52,14 @@ const InformationCommandPage = (props: Props) => {
         {goToCreate === "DEFAULT" && "ข้อมูลคำสั่งประจำ"}
         {goToCreate === "MANAGE" && "แก้ไขข้อมูลคำสั่งประจำ"}
         {goToCreate === "CREATE" && "สร้างข้อมูลคำสั่งประจำ"}
+        {goToCreate === "UPDATE" && "แก้ไขข้อมูลคำสั่งประจำ"}
       </div>
       <CardWhite>
         <div>
           {goToCreate == "DEFAULT" && <OverviewLayout setGoToCreate={setGoToCreate} />}
           {goToCreate == "MANAGE" && <ManageLayout setGoToCreate={setGoToCreate} setShowModalDelete={setShowModalDelete} setShowModalDetail={setShowModalDetail} />}
           {goToCreate == "CREATE" && <FormCreateLayout setGoToCreate={setGoToCreate} setShowModalSaved={setShowModalSaved} />}
+          {goToCreate == "UPDATE" && <FormCreateLayout setGoToCreate={setGoToCreate} setShowModalSaved={setShowModalSaved} />}
         </div>
         <div className={`flex gap-3 lg:justify-between ${goToCreate == "CREATE" && "hidden"} flex-wrap mt-6 w-full justify-center`}>
           <div>จำนวนทั้งหมด: {dataTable.total} รายการ</div>

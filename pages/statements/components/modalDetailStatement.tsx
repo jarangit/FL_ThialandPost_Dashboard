@@ -46,7 +46,7 @@ const ModalDetailStatement = ({ handleClose, open, onSubmit }: Props) => {
             animate="visible"
             exit="hidden"
           >
-            <div className='flex flex-col gap-6 overflow-y-scroll lg:overflow-hidden max-h-[500px] lg:max-h-full'>
+            <div className='flex flex-col gap-6 overflow-y-scroll lg:overflow-hidden max-h-[500px] lg:max-h-full keep-scrolling'>
               <div className='border-b-2 border-gray-light pb-3'>รายละเอียดข้อมูลทางบัญชี (Statement)</div>
 
               {/* data account */}
@@ -55,32 +55,32 @@ const ModalDetailStatement = ({ handleClose, open, onSubmit }: Props) => {
                 <div className='grid grid-cols-1 lg:grid-cols-3  gap-3 mt-3  ml-12 lg:ml-24 lg:w-[800px] mx-auto'>
                   <div>
                     <div>ประเภทเอกสาร</div>
-                    <div className='text-gray'>CA POS</div>
+                    <div className='text-gray font-thin'>CA POS</div>
                   </div>
 
                   <div>
                     <div>เลขที่เอกสาร</div>
-                    <div className='text-gray'>62-1-109032</div>
+                    <div className='text-gray font-thin'>62-1-109032</div>
                   </div>
 
                   <div>
                     <div>ธนาคาร</div>
-                    <div className='text-gray'>-</div>
+                    <div className='text-gray font-thin'>-</div>
                   </div>
 
                   <div>
                     <div>วันที่เอกสาร</div>
-                    <div className='text-gray'>31/05/2562</div>
+                    <div className='text-gray font-thin'>31/05/2562</div>
                   </div>
 
                   <div>
                     <div>วันที่บันทึก</div>
-                    <div className='text-gray'>10/06/2562</div>
+                    <div className='text-gray font-thin'>10/06/2562</div>
                   </div>
 
                   <div>
                     <div>รหัสไปรษณีย์</div>
-                    <div className='text-gray'>50301</div>
+                    <div className='text-gray font-thin'>50301</div>
                   </div>
 
                 </div>
@@ -91,32 +91,32 @@ const ModalDetailStatement = ({ handleClose, open, onSubmit }: Props) => {
                   <div className='grid grid-cols-1 lg:grid-cols-2  gap-3 mt-3   lg:w-[500px] mx-auto'>
                     <div>
                       <div>ประเภทรายการ</div>
-                      <div className='text-gray'>เพิ่มบัญชี</div>
+                      <div className='text-gray font-thin'>เพิ่มบัญชี</div>
                     </div>
 
                     <div>
                       <div>ประเภทเงิน</div>
-                      <div className='text-gray'>คำสั่งประจำสิ่งสะสม</div>
+                      <div className='text-gray font-thin'>คำสั่งประจำสิ่งสะสม</div>
                     </div>
 
                     <div>
-                      <div>ธนาคาร</div>
-                      <div className='text-gray'>-</div>
+                      <div>รหัสสมาชิก</div>
+                      <div className='text-gray font-thin'>358228</div>
                     </div>
 
                     <div>
-                      <div>วันที่เอกสาร</div>
-                      <div className='text-gray'>31/05/2562</div>
+                      <div>ชื่อ-นามสกุล</div>
+                      <div className='text-gray font-thin'>เบญจพร ทองมูลตน</div>
                     </div>
 
                     <div>
-                      <div>วันที่บันทึก</div>
-                      <div className='text-gray'>10/06/2562</div>
+                      <div>จำนวนเงิน (บาท)</div>
+                      <div className='text-gray font-thin'>1,458.00</div>
                     </div>
 
                     <div>
-                      <div>รหัสไปรษณีย์</div>
-                      <div className='text-gray'>50301</div>
+                      <div>ใบเสร็จรับเงิน/ใบกำกับภาษี</div>
+                      <div className='text-gray font-thin'>663744</div>
                     </div>
 
                   </div>

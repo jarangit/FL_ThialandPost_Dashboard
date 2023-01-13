@@ -11,6 +11,7 @@ const ResetPasswordPage = (props: Props) => {
   return (
     <>
       <SavedModal handleClose={() => setShowModalSaved(false)} open={showModalSaved} onSubmit={() => ""} />
+      <div className='border-b-2 border-gray-light pb-3 text-xl'>เปลี่ยนรหัสผ่าน</div>
       <CardWhite>
         <div className='flex flex-col'>
           <div className='w-full justify-end flex order-2 lg:order-1'>

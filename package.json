@@ -26,6 +26,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.41.5",
     "react-icons": "^4.7.1",
+    "react-numeral": "^1.1.1",
     "react-table": "^7.8.0",
     "tss-react": "^4.5.1",
     "typescript": "4.9.3"

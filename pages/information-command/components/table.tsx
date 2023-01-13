@@ -44,7 +44,7 @@ const Table = ({ mode, setShowModalDelete, setGoToCreate, setShowModalDetail }: 
           <div className={`cursor-pointer hover:text-red`} >
             <GiHamburgerMenu size={25} onClick={() => setShowModalDetail(true)} />
           </div>
-          <div className={`cursor-pointer hover:text-red`} onClick={() => setGoToCreate("CREATE")} >
+          <div className={`cursor-pointer hover:text-red`} onClick={() => setGoToCreate("UPDATE")} >
             <FaPen size={20} />
           </div>
           <div className={`cursor-pointer hover:text-red`} onClick={() => setShowModalDelete(true)}>
