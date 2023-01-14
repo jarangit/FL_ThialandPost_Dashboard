@@ -28,12 +28,6 @@ const dataMenu = [
         text: 'ข้อมูลคำสั่งประจำ',
         url: '/information-command',
       },
-      // {
-      //   icon: '',
-      //   text: `เงื่อนไขการใช้บริการ
-      //   (ด้านการตลาด)`,
-      //   url: '#',
-      // },
       {
         icon: '',
         text: 'เปลี่ยนรหัสผ่าน',
@@ -55,7 +49,16 @@ const dataMenu = [
     text: 'สั่งจองสั่งซื้อ',
     url: '#',
     children: [
-
+      {
+        icon: '',
+        text: 'สั่งจองสั่งซื้อ',
+        url: '/orders',
+      },
+      {
+        icon: '',
+        text: 'ประวัติการสั่งซื้อ',
+        url: '/order-history',
+      },
     ]
   },
   {
