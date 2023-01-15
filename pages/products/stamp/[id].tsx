@@ -12,6 +12,7 @@ import ButtonOutline from '../../../components/buttons/buttonOutline'
 import SavedModal from '../../../components/modal/savedModal'
 import SuccessModal from '../../../components/modal/successModal'
 import HeaderPage from '../../../components/layouts/headerPage'
+import SimpleSuccessModal from '../../../components/modal/simpleSuccessModal'
 
 type Props = {}
 
@@ -155,7 +156,7 @@ const StampDetailPage = (props: Props) => {
       </div>
 
       {/* modal zone */}
-      <SuccessModal text={"เพิ่มไปยังรถเข็นแล้ว"} handleClose={() => setShowModalConfirm(false)} open={showModalConfirm} onSubmit={() => ""} />
+      <SimpleSuccessModal text={"เพิ่มไปยังรถเข็นแล้ว"} handleClose={() => setShowModalConfirm(false)} open={showModalConfirm} />
     </>
   )
 }

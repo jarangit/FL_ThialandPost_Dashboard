@@ -17,9 +17,9 @@ const MenuItem = ({ title, children }: Props) => {
         </div>
       </div>
       <div className={`${isOpen ? "max-h-[500px] py-3" : "max-h-0"} overflow-hidden transition-all duration-300`}>
-        {children.map((item: any, key: any) => (
+        {children && children.length ? children.map((item: any, key: any) => (
           <div key={key} className={`pl-3 cursor-pointer hover:text-red transition-all text-sm`}>{item.text}</div>
-        ))}
+        )) : ""}
       </div>
     </div>
   )

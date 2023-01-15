@@ -29,23 +29,27 @@ const StampGridItem = ({ data }: Props) => {
   }
 
   return (
-    <Link href={`/products/stamp/${data.id}`}>
-      <div className='flex flex-col gap-3 h-full cursor-pointer drop-shadow-sm border-gray-light  border-b pb-6 lg:border-none lg:pb-0'>
-        <div className='relative mb-5 bg-blue-light px-2 py-6'>
-          <div className='relative  h-[100px]'>
-            <Image src={data.image} alt="" fill style={{ objectFit: "contain", }} />
+    <>
+      {data ? (
+        <Link href={`/products/stamp/${data.id}`}>
+          <div className='flex flex-col gap-3 h-full cursor-pointer drop-shadow-sm border-gray-light  border-b pb-6 lg:border-none lg:pb-0'>
+            <div className='relative mb-5 bg-blue-light px-2 py-6'>
+              <div className='relative  h-[100px]'>
+                <Image src={data.image} alt="" fill style={{ objectFit: "contain", }} />
+              </div>
+              <RenderTags />
+            </div>
+            <div className={`text-xs line-clamp-3 hover:text-red transition-all`}>
+              {data.name}
+            </div>
+            <div className='flex justify-between items-center'>
+              <div className='text-red'>{data.price} บาท</div>
+              <button className='bg-red-light text-white rounded-full p-1 text-sm px-2'>Detail</button>
+            </div>
           </div>
-            <RenderTags />
-        </div>
-        <div className={`text-xs line-clamp-3 hover:text-red transition-all`}>
-          {data.name}
-        </div>
-        <div className='flex justify-between items-center'>
-          <div className='text-red'>{data.price} บาท</div>
-          <button className='bg-red-light text-white rounded-full p-1 text-sm px-2'>Detail</button>
-        </div>
-      </div>
-    </Link>
+        </Link>
+      ) : ""}
+    </>
   )
 }
 
