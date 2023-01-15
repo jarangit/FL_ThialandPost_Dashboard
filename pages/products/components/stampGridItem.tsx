@@ -29,7 +29,7 @@ const StampGridItem = ({ data }: Props) => {
   }
 
   return (
-    <Link href={`/stamp/${data.id}`}>
+    <Link href={`/products/stamp/${data.id}`}>
       <div className='flex flex-col gap-3 h-full cursor-pointer drop-shadow-sm border-gray-light  border-b pb-6 lg:border-none lg:pb-0'>
         <div className='relative mb-5 bg-blue-light px-2 py-6'>
           <div className='relative  h-[100px]'>

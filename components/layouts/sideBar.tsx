@@ -52,7 +52,7 @@ const dataMenu = [
       {
         icon: '',
         text: 'สั่งจองสั่งซื้อ',
-        url: '/orders',
+        url: '/products',
       },
       {
         icon: '',
