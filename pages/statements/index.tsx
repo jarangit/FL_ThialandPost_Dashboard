@@ -28,7 +28,7 @@ const StatementsPage = (props: Props) => {
         </div>
 
         {/* footer text */}
-        <div className='w-full flex justify-end flex-col items-end mt-3 gap-1'>
+        <div className='w-full flex justify-end flex-col items-end mt-8 gap-1'>
           <div className='flex items-center gap-3 lg:gap-24'>
             <div>ยอดเงินคงเหลือรวม (บาท)</div>
             <div>3,580.00</div>
