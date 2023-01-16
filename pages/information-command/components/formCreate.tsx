@@ -63,7 +63,7 @@ const FormCreate = ({ onSave, setDataForm, dataForm }: Props) => {
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     <form onChange={(e) => onChangeDataForm(e)}>
       {/* register your input into the hook by invoking the "register" function */}
-      <div className='grid  grid-cols-1 gap-6 p-0 pt-6 lg:p-20 order-1 lg:order-2'>
+      <div className='grid  grid-cols-1 gap-6 p-0 pt-6 lg:p-20 lg:pt-6 order-1 lg:order-2'>
         <div>
           <div>ประเภทสินค้า</div>
           <Selector name={"typeProduct"} onChangeDataForm={onChangeDataForm} options={optionsTypeProducts} />

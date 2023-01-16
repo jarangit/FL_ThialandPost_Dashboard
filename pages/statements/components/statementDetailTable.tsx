@@ -139,6 +139,7 @@ const StatementDetailTable = ({ mode, setShowModalDelete, setGoToCreate, setShow
                       className={`
                       p-2 border-y border-gray-light bg-gray-light font-medium 
                       ${props.column.id == "typeProduct" ? "text-center" : ""}
+                      ${props.column.id == "type" ? "text-left" : ""}
                       `}
                     >
                       {column.render('Header')}
@@ -164,9 +165,10 @@ const StatementDetailTable = ({ mode, setShowModalDelete, setGoToCreate, setShow
                       {...cell.getCellProps()}
                       className={` p-2 font-thin py-3
                       ${props.column.id == "addAccount" ||
-                      props.column.id == "delAccount" ||
-                      props.column.id == "balance" 
-                       ? "text-right " : ""}
+                          props.column.id == "delAccount" ||
+                          props.column.id == "balance"
+                          ? "text-right " : ""}
+                       ${props.column.id == "type" ? "text-left" : ''}
                       `}
                     >
                       {cell.render('Cell')}
