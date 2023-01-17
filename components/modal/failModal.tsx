@@ -32,7 +32,6 @@ const dropIn = {
 };
 
 const FailModal = ({ handleClose, open, onSubmit, titleName }: Props) => {
-  console.log('%cMyProject%cline:34%ctitleName', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(56, 13, 49);padding:3px;border-radius:2px', titleName)
   return (
     <AnimatePresence>
       {open ? (

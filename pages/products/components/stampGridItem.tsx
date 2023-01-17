@@ -44,7 +44,7 @@ const StampGridItem = ({ data }: Props) => {
             </div>
             <div className='flex justify-between items-center'>
               <div className='text-red'>{data.price} บาท</div>
-              <button className='bg-red-light text-white rounded-full p-1 text-sm px-2'>Detail</button>
+              <button className='bg-red-light text-white rounded-full py-[2px] text-sm px-2'>รายละเอียด</button>
             </div>
           </div>
         </Link>

@@ -57,7 +57,7 @@ const dataMenu = [
       {
         icon: '',
         text: 'ประวัติการสั่งซื้อ',
-        url: '/order-history',
+        url: '/history-orders',
       },
     ]
   },

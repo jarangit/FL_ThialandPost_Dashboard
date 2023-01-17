@@ -5,9 +5,10 @@ import { ImBin2 } from 'react-icons/im'
 
 type Props = {
   toggle: boolean;
+  onDelete: any;
 }
 
-const OrderItem = ({ toggle }: Props) => {
+const OrderItem = ({ toggle, onDelete }: Props) => {
   return (
     <div className='flex justify-between items-center px-10 py-3'>
       {!toggle && (
@@ -42,7 +43,7 @@ const OrderItem = ({ toggle }: Props) => {
         <div>30</div>
       </div>
       <div>
-        <div className={`cursor-pointer text-gray hover:text-red`}>
+        <div className={`cursor-pointer text-gray hover:text-red`} onClick={onDelete}>
           <ImBin2 size={20} />
         </div>
       </div>

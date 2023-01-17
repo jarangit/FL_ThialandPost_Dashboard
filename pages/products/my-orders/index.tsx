@@ -8,6 +8,7 @@ import AddressForm from './components/addressForm'
 import ButtonOutline from '../../../components/buttons/buttonOutline'
 import SuccessOrderModal from '../../../components/modal/successOrderModal'
 import { useRouter } from 'next/router'
+import ConfirmDeleteModal from '../../../components/modal/confirmDeleteModal'
 
 type Props = {}
 
@@ -15,6 +16,8 @@ const MyOrdersPage = (props: Props) => {
   const { push } = useRouter()
   const [toggleCheckout, setToggleCheckout] = useState(false)
   const [showModalSuccessModal, setShowModalSuccessModal] = useState(false)
+  const [showModalDelete, setShowModalDelete] = useState(false)
+
   return (
     <>
       <HeaderPage>
@@ -40,7 +43,7 @@ const MyOrdersPage = (props: Props) => {
           )}
 
           <div className='mt-6'>
-            <OrderList toggle={toggleCheckout} />
+            <OrderList toggle={toggleCheckout} onDelete={() => setShowModalDelete(true)}/>
           </div>
 
           <div className='flex w-full justify-end lg:px-10'>
@@ -68,6 +71,7 @@ const MyOrdersPage = (props: Props) => {
       </CardWhite>
       {/* modal zone */}
       <SuccessOrderModal handleClose={() => setShowModalSuccessModal(false)} open={showModalSuccessModal} onSubmit={() => push('/history-orders')} />
+      <ConfirmDeleteModal handleClose={() => setShowModalDelete(false)} open={showModalDelete} onSubmit={() => setShowModalDelete(false)} />
     </>
   )
 }

@@ -145,7 +145,7 @@ const StampDetailPage = (props: Props) => {
                         </div>
                       </Button>
                       <Button onClick={() => push('/products/my-orders')}>สั่งสินค้า</Button>
-                      <ButtonOutline onClick={() => push('/orders')}>ย้อนกลับ</ButtonOutline>
+                      <ButtonOutline onClick={() => push('/products')}>ย้อนกลับ</ButtonOutline>
                     </div>
                   </div>
                 </div>
