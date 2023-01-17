@@ -9,7 +9,7 @@ const AddressForm = (props: Props) => {
     `
   }
   return (
-    <div className='p-0 pt-6 lg:p-20'>
+    <div className='p-0 pt-6 lg:p-20 lg:py-10'>
       <div>ที่อยู่สำหรับจัดส่งสินค้า (เฉพาะคำสั่งซื้อนี้)</div>
       <div className='grid  grid-cols-1 lg:grid-cols-2 gap-6 mt-6 order-1 lg:order-2'>
         <div>

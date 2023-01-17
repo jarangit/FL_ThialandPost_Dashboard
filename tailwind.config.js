@@ -46,6 +46,14 @@ module.exports = {
         DEFAULT: '#969595',
         dark: '#707070',
       },
+      'green': {
+        light: '#A3DFC9',
+        DEFAULT: '#22952A',
+      },
+      'orange': {
+        light: '#F8DFC1',
+        DEFAULT: '#F7A848',
+      },
     },
   },
   plugins: [

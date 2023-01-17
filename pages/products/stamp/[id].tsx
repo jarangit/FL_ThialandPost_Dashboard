@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { FaShoppingCart } from 'react-icons/fa'
 import { TiPlus, TiMinus } from 'react-icons/ti'
 import { BiMinus } from 'react-icons/bi'
@@ -13,10 +13,15 @@ import SavedModal from '../../../components/modal/savedModal'
 import SuccessModal from '../../../components/modal/successModal'
 import HeaderPage from '../../../components/layouts/headerPage'
 import SimpleSuccessModal from '../../../components/modal/simpleSuccessModal'
+import { AppContext } from '../../../context/appState'
+import Cart from '../../../components/items/cart'
 
 type Props = {}
 
 const StampDetailPage = (props: Props) => {
+  // @ts-ignore
+  const { myCheckout, setMyCheckout } = useContext(AppContext)
+
   const { query, push } = useRouter()
   const [countSelect, setCountSelect] = useState(1)
   const [dataStamp, setDataStamp] = useState<any>()
@@ -48,6 +53,22 @@ const StampDetailPage = (props: Props) => {
     }
   }, [countSelect])
 
+  const onAddProduct = useCallback(() => {
+    if (dataStamp) {
+      const product = {
+        orderId: myCheckout.counts + 1,
+        ...dataStamp,
+      }
+      myCheckout.data.push(product)
+      setMyCheckout({
+        ...myCheckout,
+        counts: myCheckout.counts + 1,
+        totalPrice: myCheckout.totalPrice + product.price,
+      })
+      setShowModalConfirm(true)
+    }
+  }, [dataStamp, myCheckout])
+
   useEffect(() => {
     if (query.id) {
       getData(query.id)
@@ -59,11 +80,8 @@ const StampDetailPage = (props: Props) => {
       <div>
         <HeaderPage>
           <div>รายละเอียดสินค้า</div>
-          <div className='flex items-center gap-3'>
-            <div className='relative border h-8 w-8 flex items-center justify-center border-gray-light bg-gray-supperLight rounded-md cursor-pointer'>
-              <FaShoppingCart size={20} />
-              <div className='absolute text-xs -top-2 -right-2 bg-red text-white w-5 h-5 flex justify-center items-center scale-75 rounded-full overflow-hidden font-bold'>1</div>
-            </div>
+          <div>
+            <Cart counts={myCheckout.counts} />
           </div>
         </HeaderPage>
 
@@ -136,11 +154,11 @@ const StampDetailPage = (props: Props) => {
                       </div>
                     </div>
                     <div className='flex gap-3 items-center flex-wrap'>
-                      <Button>
+                      <Button onClick={onAddProduct}>
                         <div className='mr-2'>
                           <FaShoppingCart size={20} />
                         </div>
-                        <div onClick={() => setShowModalConfirm(true)}>
+                        <div >
                           เพิ่มไปยังรถเข็น
                         </div>
                       </Button>

@@ -6,9 +6,10 @@ import { ImBin2 } from 'react-icons/im'
 type Props = {
   toggle: boolean;
   onDelete: any;
+  data: any;
 }
 
-const OrderItem = ({ toggle, onDelete }: Props) => {
+const OrderItem = ({ toggle, onDelete, data }: Props) => {
   return (
     <div className='flex justify-between items-center px-10 py-3'>
       {!toggle && (
@@ -19,18 +20,18 @@ const OrderItem = ({ toggle, onDelete }: Props) => {
           </label>
         </div>
       )}
-      <div>
-        <Image src={'/img/stamp.png'} width={100} height={100} alt='' />
+      <div className='w-[100px] h-[100px] relative'>
+        <Image src={data?.image} fill alt='' style={{objectFit:"contain"}} />
       </div>
       <div className='flex flex-col items-center gap-2'>
         <div>ราคา</div>
-        <div>30</div>
+        <div>{data?.price}</div>
       </div>
       <div className='flex flex-col items-center gap-2'>
         <div>จำนวน</div>
         {!toggle ? (
           <div>
-            <QuantityController quantity={0} onChangeQuantity={() => ""} />
+            <QuantityController quantity={1} onChangeQuantity={() => ""} />
           </div>
         ) : "0"}
       </div>
@@ -40,10 +41,10 @@ const OrderItem = ({ toggle, onDelete }: Props) => {
       </div>
       <div className='flex flex-col items-center gap-2'>
         <div>รวม</div>
-        <div>30</div>
+        <div>{data?.price}</div>
       </div>
       <div>
-        <div className={`cursor-pointer text-gray hover:text-red`} onClick={onDelete}>
+        <div className={`cursor-pointer text-gray hover:text-red`} onClick={() => onDelete(data?.orderId)}>
           <ImBin2 size={20} />
         </div>
       </div>
