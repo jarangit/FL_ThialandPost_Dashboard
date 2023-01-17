@@ -1,12 +1,14 @@
 import React from 'react'
 import Button from '../../../components/buttons/button'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 type Props = {
   data: any
 }
 
 const HistoryOrderItem = ({ data }: Props) => {
+  const { push } = useRouter()
   return (
     <>
       {data ? (
@@ -14,7 +16,7 @@ const HistoryOrderItem = ({ data }: Props) => {
           <div className='flex justify-between items-center w-full flex-wrap gap-3'>
             <div className='text-xl'>เลขที่คำสั่งซื้อ {data.id}</div>
             <div className='hidden lg:block'>
-              <Button>ดูรายละเอียด</Button>
+              <Button onClick={() => push(`/history-orders/${data.id}`)}>ดูรายละเอียด</Button>
             </div>
           </div>
 
