@@ -42,9 +42,9 @@ const StampGridItem = ({ data }: Props) => {
             <div className={`text-xs line-clamp-3 hover:text-red transition-all`}>
               {data.name}
             </div>
-            <div className='flex justify-between items-center'>
+            <div className='flex justify-between items-center flex-wrap lg:flex-nowrap'>
               <div className='text-red'>{data.price} บาท</div>
-              <button className='bg-red-light text-white rounded-full py-[2px] text-sm px-2'>รายละเอียด</button>
+              <button className='bg-red-light text-white rounded-full py-[2px] text-sm px-2 w-full lg:w-auto'>รายละเอียด</button>
             </div>
           </div>
         </Link>

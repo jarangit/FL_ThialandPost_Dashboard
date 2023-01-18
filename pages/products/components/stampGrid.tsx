@@ -59,7 +59,7 @@ const StampGrid = ({ data }: Props) => {
             inverse={false}
             style={{ overflowY: 'hidden' }}
           >
-            <div className={`grid grid-cols-1 lg:grid-cols-4 gap-4`}>
+            <div className={`grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 gap-4`}>
 
               {data.slice(0, itemLength.length).map((item: any, key: any) => (
                 <div key={key} className={``}>

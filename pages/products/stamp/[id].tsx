@@ -153,7 +153,7 @@ const StampDetailPage = (props: Props) => {
                         </div>
                       </div>
                     </div>
-                    <div className='flex gap-3 items-center flex-wrap'>
+                    <div className='flex gap-3 items-center flex-wrap '>
                       <Button onClick={onAddProduct}>
                         <div className='mr-2'>
                           <FaShoppingCart size={20} />
