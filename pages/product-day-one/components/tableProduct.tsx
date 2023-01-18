@@ -3,9 +3,7 @@ import { FaPen } from 'react-icons/fa'
 import { ImBin2 } from 'react-icons/im'
 import { useRowSelect, useTable } from 'react-table'
 import Button from '../../../components/buttons/button'
-import { Pagination } from '@mui/material'
-import { padNumber } from '../../../utils/padNumber'
-
+import { mockDataProductDayOneTable } from '../../../constants/mockDataProductDayOneTable'
 type Props = {
   onChangeMode: any;
   setShowModalDelete: any;
@@ -15,11 +13,10 @@ type Props = {
   currentPage: any;
 }
 
-const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDeleteTitleName, currentPage }: Props) => {
+const TableProduct = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDeleteTitleName, currentPage }: Props) => {
   // state zone
   const [data, setData] = useState([])
-  console.log('%cMyProject%cline:20%cdata', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(96, 143, 159);padding:3px;border-radius:2px', data)
-  const [id, setTd] = useState("")
+  const [id, setTd] = useState()
   const [updateDateState, setUpdateDateState] = useState('-')
 
   const RenderIcon = useCallback(() => {
@@ -36,17 +33,14 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
   }, [])
 
   const mapDataTable = async () => {
-    const res = await dataTable?.list.map((item: any, key: any) => {
-      const dateUpdate = new Date(item.UpdatedDate)
-      const dateCreate = new Date(item.CreatedDate)
-      const updatedAt = `${item.UpdatedDate ? `${dateUpdate.getDate()}/${dateUpdate.getMonth() + 1}/${dateUpdate.getFullYear()}` : "-"}`
-      const createdAt = `${item.CreatedDate ? `${dateCreate.getDate()}/${dateCreate.getMonth() + 1}/${dateCreate.getFullYear()}` : "-"}`
+    const res:any = await mockDataProductDayOneTable?.map((item: any, key: any) => {
       return {
-        id: item.titleId,
-        rank: key + 1 + (currentPage * 10),
-        name: item.titleName,
-        date: item.UpdatedDate ? updatedAt : createdAt,
-        icon: <RenderIcon />
+        id:item.id,
+        round:item.round,
+        slug:item.slug,
+        productName:item.productName,
+        qty:item.qty,
+        totalPrice:item.totalPrice,
       }
     })
     if (res) {
@@ -57,20 +51,24 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
   const columns: any = React.useMemo(
     () => [
       {
-        Header: 'ลำดับ',
-        accessor: 'rank', // accessor is the "key" in the data
+        Header: 'รอบ',
+        accessor: 'round', // accessor is the "key" in the data
       },
       {
-        Header: 'คำนำหน้าชื่อ',
-        accessor: 'name',
+        Header: 'รหัสสินค้า ',
+        accessor: 'slug',
       },
       {
-        Header: 'วันที่แก้ไข',
-        accessor: 'date',
+        Header: 'ชื่อสินค้า  ',
+        accessor: 'productName',
       },
       {
-        Header: 'จัดการ',
-        accessor: 'icon',
+        Header: 'จำนวนสินค้า  ',
+        accessor: 'qty',
+      },
+      {
+        Header: 'จำนวนเงิน    ',
+        accessor: 'totalPrice',
       },
     ],
     []
@@ -87,7 +85,7 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
 
       return (
         <>
-          <label className="container bottom-2 left-5">
+          <label className="container bottom-2 left-2">
             <input type="checkbox" ref={resolvedRef} {...rest} />
             <span className="checkmark"  ></span>
           </label>
@@ -139,7 +137,7 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
   const onSetID = (row: any) => {
     const { id } = row.row.original
     if (row) {
-      setActionID(id)
+      setTd(id)
     }
   }
   useEffect(() => {
@@ -148,17 +146,7 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
 
   return (
     <>
-      <div className={`w-full flex justify-end gap-3`}>
-        <Button onClick={() => onChangeMode("CREATE")}>
-          เพิ่ม
-        </Button>
-        <Button
-          disabled
-        >
-          ลบทั้งหมด
-        </Button>
-      </div>
-      <div className='  my-6 overflow-hidden text-sm border-x border-gray-light overflow-x-scroll lg:overflow-auto '>
+      <div className='overflow-hidden text-sm border-x border-gray-light overflow-x-scroll lg:overflow-auto border-b'>
         <table {...getTableProps()} className="w-full text-center min-w-[700px] lg:min-w-full">
           <thead>
             {headerGroups.map(headerGroup => (
@@ -213,4 +201,4 @@ const Table = ({ onChangeMode, setShowModalDelete, dataTable, setActionID, onDel
   )
 }
 
-export default Table
+export default TableProduct

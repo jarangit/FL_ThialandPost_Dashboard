@@ -95,7 +95,7 @@ const menageNamePage = (props: Props) => {
   return (
     <div>
       <div className='flex items-center justify-between w-full border-b-2 border-gray-light pb-3 flex-wrap'>
-        <div className=' pb-3 text-xl'>
+        <div className='text-xl'>
           {mode == "DEFAULT" && "จัดการคำนำหน้าชื่อ"}
           {mode == "CREATE" && "เพิ่มคำนำหน้าชื่อ"}
           {mode == "UPDATE" && "แก้ไขคำนำหน้าชื่อ"}

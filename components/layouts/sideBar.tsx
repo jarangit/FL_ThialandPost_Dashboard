@@ -65,7 +65,7 @@ const dataMenu = [
     icon: <MdLibraryBooks size={25} />,
     text: `สินค้าวันแรกจำหน่ายที่ท่าน
     ยังไม่ได้รับตามคำสั่งประจำ`,
-    url: '#',
+    url: '/product-day-one',
     children: [
 
     ]
