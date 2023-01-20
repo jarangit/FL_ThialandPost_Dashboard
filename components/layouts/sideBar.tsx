@@ -73,7 +73,7 @@ const dataMenu = [
   {
     icon: <FaPen size={25} />,
     text: 'ติดตาม/สอบถามข้อมูล',
-    url: '#',
+    url: '/tracking',
     children: [
 
     ]

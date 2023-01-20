@@ -8,6 +8,7 @@ import TableProduct from './components/tableProduct'
 import { Pagination } from '@mui/material'
 import { makeStyles } from "@material-ui/core/styles";
 import SuccessQuotationModal from '../../components/modal/successQuotationModal'
+import FilterProductModal from './components/filterProductModal'
 
 const useStyles = makeStyles(() => ({
   button: {
@@ -21,6 +22,7 @@ type Props = {}
 const ProductDayOnePage = (props: Props) => {
   const classes = useStyles();
   const [showModalCreateQuotation, setShowModalCreateQuotation] = useState(false)
+  const [showModalFilter, setShowModalFilter] = useState(false)
   const [dataTable, setDataTable] = useState({
     total: 7,
     page: 0,
@@ -34,7 +36,12 @@ const ProductDayOnePage = (props: Props) => {
           <div>
             สินค้าวันแรกจำหน่ายที่ท่านยังไม่ได้รับตามคำสั่งประจำ
           </div>
-          <InputSearch />
+          <div className='relative'>
+            <InputSearch onShowFilter={() => setShowModalFilter(true)} />
+            <div className='absolute right-0 hidden lg:block'>
+              <FilterProductModal onClose={() => setShowModalFilter(false)} onShow={showModalFilter} />
+            </div>
+          </div>
         </div>
       </HeaderPage>
 
