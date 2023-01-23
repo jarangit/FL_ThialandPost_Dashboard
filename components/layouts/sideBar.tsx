@@ -81,7 +81,7 @@ const dataMenu = [
   {
     icon: <HiCreditCard size={25} />,
     text: 'เพิ่มเงินบัญชีสมาชิก',
-    url: '#',
+    url: '/add-credit',
     children: [
 
     ]

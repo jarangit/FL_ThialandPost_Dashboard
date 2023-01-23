@@ -5,6 +5,7 @@ import { FaPen } from 'react-icons/fa';
 import { ImBin2 } from 'react-icons/im';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useRouter } from 'next/router';
+import FooterTable from '../../../components/items/footerTable';
 type Props = {
   mode?: string;
   setShowModalDelete?: any
@@ -134,61 +135,66 @@ const HistoryTable = ({ mode, setShowModalDelete, setGoToCreate, setShowModalDet
 
 
   return (
-    <div className='  my-6 overflow-hidden text-sm border-x border-gray-light overflow-x-scroll lg:overflow-auto border-b'>
-      <table {...getTableProps()} className="w-full text-center min-w-[700px] lg:min-w-full">
-        <thead>
-          {headerGroups.map(headerGroup => (
-            // eslint-disable-next-line react/jsx-key
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column, key) => {
-                const { props }: any = column.render('Cell')
-                return (
-                  <React.Fragment key={key}
-                  >
-                    <th
-                      {...column.getHeaderProps()}
-                      className={`
+    <>
+      <div className='  my-6 overflow-hidden text-sm border-x border-gray-light overflow-x-scroll lg:overflow-auto border-b'>
+        <table {...getTableProps()} className="w-full text-center min-w-[700px] lg:min-w-full">
+          <thead>
+            {headerGroups.map(headerGroup => (
+              // eslint-disable-next-line react/jsx-key
+              <tr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column, key) => {
+                  const { props }: any = column.render('Cell')
+                  return (
+                    <React.Fragment key={key}
+                    >
+                      <th
+                        {...column.getHeaderProps()}
+                        className={`
                       p-2 border-y border-gray-light bg-gray-light font-medium 
                       ${props.column.id == "typeProduct" ? "text-center" : ""}
                       `}
-                    >
-                      {column.render('Header')}
-                    </th>
-                  </React.Fragment>
-                )
-              })}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map((row, key) => {
-            prepareRow(row)
-            return (
-              // eslint-disable-next-line react/jsx-key
-              <tr {...row.getRowProps()} className={`${key % 2 ? "bg-gray-supperLight" : ""} hover:bg-pink transition-all`}>
-                {row.cells.map((cell, key) => {
-                  const { props }: any = cell.render('Cell')
-                  return (
-                    // eslint-disable-next-line react/jsx-key
-                    <td
-                      // onClick={() => onSetID({ row })}
-                      {...cell.getCellProps()}
-                      className={` p-2 font-thin py-3 
+                      >
+                        {column.render('Header')}
+                      </th>
+                    </React.Fragment>
+                  )
+                })}
+              </tr>
+            ))}
+          </thead>
+          <tbody {...getTableBodyProps()}>
+            {rows.map((row, key) => {
+              prepareRow(row)
+              return (
+                // eslint-disable-next-line react/jsx-key
+                <tr {...row.getRowProps()} className={`${key % 2 ? "bg-gray-supperLight" : ""} hover:bg-pink transition-all`}>
+                  {row.cells.map((cell, key) => {
+                    const { props }: any = cell.render('Cell')
+                    return (
+                      // eslint-disable-next-line react/jsx-key
+                      <td
+                        // onClick={() => onSetID({ row })}
+                        {...cell.getCellProps()}
+                        className={` p-2 font-thin py-3 
                       ${props.column.id == "type" ? "text-left " : ""}
                       ${props.column.id == "details" ? "text-left " : ""}
                       ${props.column.id == "status" ? "text-left " : ""}
                       `}
-                    >
-                      {cell.render('Cell')}
-                    </td>
-                  )
-                })}
-              </tr>
-            )
-          })}
-        </tbody>
-      </table>
-    </div>
+                      >
+                        {cell.render('Cell')}
+                      </td>
+                    )
+                  })}
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      {/* pagination */}
+      <FooterTable total={5} size={10} page={0} setCurrentPage={() => ""} />
+    </>
   )
 }
 
