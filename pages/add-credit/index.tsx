@@ -34,7 +34,7 @@ const AddCreditPage = (props: Props) => {
           </div>
           <div>
             <div>ช่องทางการชำระเงิน</div>
-            <div className='flex items-center gap-10 mt-3'>
+            <div className='flex items-center gap-3 lg:gap-10 mt-3 flex-wrap'>
               <div className='flex gap-3 items-center'>
                 <div className='text-red cursor-pointer' onClick={() => setActiveTab("CARD")}>
                   {activeTab == "CARD" ? (

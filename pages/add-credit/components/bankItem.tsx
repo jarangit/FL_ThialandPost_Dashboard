@@ -19,7 +19,7 @@ const BankItem = ({ id, image, name, detail, type, branch, number, setBankSelect
   const [active, setActive] = useState(false)
   return (
     <div className='flex justify-between'>
-      <div className='flex gap-6 items-center'>
+      <div className='flex gap-6 items-center flex-wrap'>
         <div className='text-red cursor-pointer' onClick={() => setBankSelected(id)}>
           {bankSelected == id ? (
             <AiTwotoneCheckCircle size={20} />
@@ -32,9 +32,9 @@ const BankItem = ({ id, image, name, detail, type, branch, number, setBankSelect
         </div>
         <div className='min-w-[100px]'>{name}</div>
         <div>{number}</div>
-        <div>{detail}</div>
+        <div className='text-gray'>{detail}</div>
       </div>
-      <div className='flex gap-6 items-center'>
+      <div className='flex gap-6 items-center flex-wrap'>
         <div>{type}</div>
         <div>{branch}</div>
       </div>
