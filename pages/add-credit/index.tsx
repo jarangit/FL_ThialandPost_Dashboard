@@ -5,10 +5,12 @@ import Button from '../../components/buttons/button'
 import { BsCircle } from 'react-icons/bs'
 import { AiTwotoneCheckCircle } from 'react-icons/ai'
 import BankForm from './components/bankForm'
+import SavedModal from '../../components/modal/savedModal'
 type Props = {}
 
 const AddCreditPage = (props: Props) => {
   const [activeTab, setActiveTab] = useState("CARD")
+  const [showModalSaved, setShowModalSaved] = useState(false)
   return (
     <div>
       <HeaderPage>
@@ -16,9 +18,12 @@ const AddCreditPage = (props: Props) => {
       </HeaderPage>
       <CardWhite>
         <div className='flex w-full justify-end'>
-          <Button>
-            ถัดไป
-          </Button>
+          {activeTab == "CARD" && (
+            <Button>ถัดไป</Button>
+          )}
+          {activeTab == "BANK" && (
+            <Button onClick={() => setShowModalSaved(true)}>บันทึก</Button>
+          )}
         </div>
 
         <div className='mt-6 flex flex-col gap-6'>
@@ -76,6 +81,8 @@ const AddCreditPage = (props: Props) => {
           )}
         </div>
       </CardWhite>
+      {/* modal zone */}
+      <SavedModal handleClose={() => setShowModalSaved(false)} open={showModalSaved} onSubmit={() => ""} />
     </div>
   )
 }

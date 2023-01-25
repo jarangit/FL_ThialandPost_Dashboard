@@ -54,7 +54,7 @@ const BankForm = (props: Props) => {
           </div>
           <div className='col-span-10'>
             <div>รายละเอียด</div>
-            <textarea rows={4} className={`${styled.input}`} />
+            <textarea rows={6} className={`${styled.input}`} />
           </div>
         </div>
       </form>
