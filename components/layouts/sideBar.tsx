@@ -86,14 +86,14 @@ const dataMenu = [
 
     ]
   },
-  {
-    icon: <HiCreditCard size={25} />,
-    text: 'จัดการคำนำชื่อ',
-    url: '/menage-name',
-    children: [
+  // {
+  //   icon: <HiCreditCard size={25} />,
+  //   text: 'จัดการคำนำชื่อ',
+  //   url: '/menage-name',
+  //   children: [
 
-    ]
-  },
+  //   ]
+  // },
 ]
 const SideBar = ({ showSideBar, setShowSideBar }: Props) => {
   const [currentPath, setCurrentPath] = useState("")

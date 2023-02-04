@@ -42,7 +42,7 @@ const BankForm = (props: Props) => {
             <input type="text" className={`${styled.input}`} />
           </div>
           <div className='col-span-10 lg:col-span-4'>
-            <div>จำนวนเงินที่โอนเข้าบัญชี (บาท)</div>
+            <div>วันที่ และเวลาโอนเงิน</div>
             <input type="date" className={`${styled.input}`} />
           </div>
           <div className='col-span-10 lg:col-span-2 flex items-end'>

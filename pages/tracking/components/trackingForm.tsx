@@ -19,11 +19,11 @@ const TrackingForm = (props: Props) => {
       <div className='grid grid-cols-2'>
         <div>
           <div>รหัสสมาชิก</div>
-          <div className=' text-gray font-thin'>123456</div>
+          <div className=' text-gray'>123456</div>
         </div>
         <div>
           <div>ชื่อ-นามสกุล</div>
-          <div className=' text-gray font-thin'>พิมพ์ศุภางค์  สุขดี</div>
+          <div className=' text-gray'>พิมพ์ศุภางค์  สุขดี</div>
         </div>
       </div>
 

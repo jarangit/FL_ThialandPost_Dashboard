@@ -76,7 +76,7 @@ const HistoryDetailPage = (props: Props) => {
             {/* total */}
             <div className='mt-6 text-red flex w-full justify-end flex-col items-end'>
               <div>รวมการสั่งซื้อ (บาท)</div>
-              <div>{data.totalPrice} บาท</div>
+              <div>{data.totalPrice}</div>
             </div>
 
             <div className='mt-6'>

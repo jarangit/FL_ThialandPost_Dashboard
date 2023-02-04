@@ -22,28 +22,24 @@ const TrackingDetailPage = (props: Props) => {
             <div className='grid grid-cols-2'>
               <div>
                 <div>รหัสสมาชิก</div>
-                <div className=' text-gray font-thin'>123456</div>
+                <div className=' text-gray'>123456</div>
               </div>
               <div>
                 <div>ชื่อ-นามสกุล</div>
-                <div className=' text-gray font-thin'>พิมพ์ศุภางค์  สุขดี</div>
+                <div className=' text-gray'>พิมพ์ศุภางค์  สุขดี</div>
               </div>
             </div>
             <div>
-              <div>รหัสสมาชิก</div>
-              <div className=' text-gray font-thin'>123456</div>
-            </div>
-            <div>
               <div>ประเภทเรื่อง</div>
-              <div className=' text-gray font-thin'>ไม่ได้รับแสตมป์</div>
+              <div className=' text-gray'>ไม่ได้รับแสตมป์</div>
             </div>
             <div>
               <div>รายละเอียด</div>
-              <div className=' text-gray font-thin'>สั่งซื้อแสตมป์เมื่อวันที่ 25/05/2565 รบกวนตรวจสอบด้วยค่ะ</div>
+              <div className=' text-gray'>สั่งซื้อแสตมป์เมื่อวันที่ 25/05/2565 รบกวนตรวจสอบด้วยค่ะ</div>
             </div>
             <div>
-              <div>แนบไฟล์ภาพ</div>
-              <div className=' text-blue underline underline-blue font-thin'>stamp.jpeg</div>
+              <div>ไฟล์ภาพ</div>
+              <div className=' text-blue underline underline-blue'>stamp.jpeg</div>
             </div>
           </div>
           <div>

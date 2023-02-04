@@ -21,11 +21,11 @@ const OrderItem = ({ toggle, onDelete, data }: Props) => {
         </div>
       )}
       <div className='w-[100px] h-[100px] relative'>
-        <Image src={data?.image} fill alt='' style={{objectFit:"contain"}} />
+        <Image src={data?.image} fill alt='' style={{ objectFit: "contain" }} />
       </div>
       <div className='flex flex-col items-center gap-2'>
-        <div>ราคา</div>
-        <div>{data?.price}</div>
+        <div>ราคา/หน่วย</div>
+        <div className='w-full text-right'>{data?.price}.00</div>
       </div>
       <div className='flex flex-col items-center gap-2'>
         <div>จำนวน</div>
@@ -39,14 +39,16 @@ const OrderItem = ({ toggle, onDelete, data }: Props) => {
         <div>หน่วย</div>
         <div>ชุด</div>
       </div>
-      <div className='flex flex-col items-center gap-2'>
+      <div className='flex flex-col items-end gap-2 text-right'>
         <div>รวม</div>
-        <div>{data?.price}</div>
+        <div className='w-full text-right'>{data?.price}.00</div>
       </div>
       <div>
-        <div className={`cursor-pointer text-gray hover:text-red`} onClick={() => onDelete(data?.orderId)}>
-          <ImBin2 size={20} />
-        </div>
+        {!toggle && (
+          <div className={`cursor-pointer text-gray hover:text-red`} onClick={() => onDelete(data?.orderId)}>
+            <ImBin2 size={20} />
+          </div>
+        )}
       </div>
     </div>
   )
