@@ -155,6 +155,7 @@ const HistoryTable = ({ mode, setShowModalDelete, setGoToCreate, setShowModalDet
                         className={`
                       p-2 border-y border-gray-light bg-gray-light font-medium 
                       ${props.column.id == "typeProduct" ? "text-center" : ""}
+                      ${props.column.id == "type" ? "text-left" : ""}
                       `}
                       >
                         {column.render('Header')}
@@ -179,7 +180,7 @@ const HistoryTable = ({ mode, setShowModalDelete, setGoToCreate, setShowModalDet
                         // onClick={() => onSetID({ row })}
                         {...cell.getCellProps()}
                         className={` p-2 font-thin py-3
-                      ${props.column.id == "type" ? "text-center " : ""}
+                      ${props.column.id == "type" ? "text-left " : ""}
                       ${props.column.id == "details" ? "text-left max-w-[350px] " : ""}
                       ${props.column.id == "status" ? "text-left " : ""}
                       `}

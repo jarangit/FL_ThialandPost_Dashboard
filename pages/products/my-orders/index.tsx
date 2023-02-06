@@ -93,16 +93,16 @@ const MyOrdersPage = (props: Props) => {
           <div className='flex w-full justify-end lg:px-10'>
             <div>
               <div className={`flex gap-1 lg:gap-3 justify-end ${showLabelCredit && "text-red"}`}>
-                <div>ยอดเงินคงเหลือสุทธิ</div>
-                <div className='w-24 text-right'>{credit}.00 <span>บาท</span></div>
+                <div>ยอดเงินคงเหลือสุทธิ (บาท)</div>
+                <div className='w-16 text-right'>{credit}.00 </div>
               </div>
               <div className='flex gap-1 lg:gap-3 justify-end'>
-                <div>ยอดเงินสั่งซื้อ</div>
-                <div className='w-24 text-right'>{myCheckout.totalPrice}.00 <span>บาท</span></div>
+                <div>ยอดเงินสั่งซื้อ (บาท)</div>
+                <div className='w-16 text-right'>{myCheckout.totalPrice}.00 </div>
               </div>
               <div className='flex gap-1 lg:gap-3 justify-end'>
-                <div >ยอดเงินใช้ได้</div>
-                <div className='w-24 text-right'>{credit}.00 <span>บาท</span></div>
+                <div >ยอดเงินใช้ได้ (บาท)</div>
+                <div className='w-16 text-right'>{credit}.00 </div>
               </div>
             </div>
           </div>

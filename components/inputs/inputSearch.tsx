@@ -20,7 +20,7 @@ const InputSearch = ({ placeholder, onShowFilter }: Props) => {
       <AiOutlineSearch
         color='#9B9898'
       />
-      <input placeholder={placeholder ?? "ค้าหา"} className={`text-gray text-sm`} />
+      <input placeholder={placeholder ?? "ค้นหา"} className={`text-gray text-sm`} />
       <div className={`${styled.boxImage}`} onClick={onShowFilter}>
         <Image
           src='/img/icons/control.svg'
