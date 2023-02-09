@@ -40,7 +40,7 @@ const OrderItem = ({ toggle, onDelete, data }: Props) => {
         <div>ชุด</div>
       </div>
       <div className='flex flex-col items-end gap-2 text-right'>
-        <div>รวม</div>
+        <div>รวม (บาท)</div>
         <div className='w-full text-right'>{data?.price}.00</div>
       </div>
       <div>
